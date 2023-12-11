@@ -7,17 +7,41 @@ import {
   redirectUnauthorizedTo,
 } from '@angular/fire/auth-guard';
 import { HomePageComponent } from './Layouts/home-page/home-page.component';
+import { MenLayoutComponent } from './mens/men-layout/men-layout.component';
+import { NewsComponent } from './mens/men-layout/news/news.component';
+import { SalesComponent } from './mens/men-layout/sales/sales.component';
+import { ClothingComponent } from './mens/men-layout/clothing/clothing.component';
+import { DenimComponent } from './mens/men-layout/denim/denim.component';
 
 const routes: Routes = [
   {
     path: '', // localhost:4200
     component: HomePageComponent,
     // canActivate: [AuthGuard],
-    data : { authGuardPipe: () => redirectUnauthorizedTo(['/']) },
+    // data : { authGuardPipe: () => redirectUnauthorizedTo(['/']) },
+
+  },
+  {
+    path: 'all',
+    component: MenLayoutComponent,
     children: [
       {
-        path: '', component: HomePageComponent,
-      }
+        path: 'men/new',
+        component: NewsComponent
+      },
+      {
+        path: 'men/denim',
+        component: DenimComponent
+      },
+      {
+        path: 'men/clothing',
+        component: ClothingComponent
+      },
+      {
+        path: 'men/sales',
+        component: SalesComponent
+      },
+
     ]
   },
   {

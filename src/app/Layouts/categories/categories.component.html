@@ -1,6 +1,6 @@
 <div class="navbar">
   <div class="dropdown">
-    <button class="dropbtn"> New
+    <button class="dropbtn" [routerLink]="['/all']"> New
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">  
@@ -27,7 +27,34 @@
     </div>
   </div>
   <div class="dropdown">
-    <button class="dropbtn">Clothing 
+    <button class="dropbtn" [routerLink]="['/all/men/denim']" > Denim
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">  
+      <div class="row">
+        <div class="column">
+          <h3> spotlight on</h3>
+          <a href="#">New Arrivals: The winter collection</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+        <div class="column">
+          <h3>Featured Shop</h3>
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+        <div class="column">
+          <div class="flex-img">
+          <img src="https://www.madewell.com/brand_creative/jpg/m-2023-dec1flyout-newarrivals.jpg?wid=1080&fmt=jpeg&fit=wrap&qlt=70,1&resMode=bisharp&op_usm=0.5,1,5,0" alt="">
+          <p>shop new arrivals</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn" [routerLink]="['/all/men/clothing']">Clothing 
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">  
@@ -54,61 +81,7 @@
     </div>
   </div> 
   <div class="dropdown">
-    <button class="dropbtn">Shoes 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">  
-      <div class="row">
-        <div class="column">
-          <h3>Category 1</h3>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-        <div class="column">
-          <h3>Category 2</h3>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-        <div class="column">
-          <h3>Category 3</h3>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div>
-    </div>
-  </div> 
-  <div class="dropdown">
-    <button class="dropbtn">Acessories 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">  
-      <div class="row">
-        <div class="column">
-          <h3>Category 1</h3>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-        <div class="column">
-          <h3>Category 2</h3>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-        <div class="column">
-          <h3>Category 3</h3>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div>
-    </div>
-  </div> 
-  <div class="dropdown">
-    <button class="dropbtn">Sale 
+    <button class="dropbtn" [routerLink]="['/all/men/sales']" >Sale 
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">  

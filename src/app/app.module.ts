@@ -18,6 +18,11 @@ import { CategoriesComponent } from './Layouts/categories/categories.component';
 import { FooterComponent } from './Layouts/footer/footer.component';
 import { MaterialsModule } from './store/materials/materials.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MenLayoutComponent } from './mens/men-layout/men-layout.component';
+import { NewsComponent } from './mens/men-layout/news/news.component';
+import { ClothingComponent } from './mens/men-layout/clothing/clothing.component';
+import { SalesComponent } from './mens/men-layout/sales/sales.component';
+import { DenimComponent } from './mens/men-layout/denim/denim.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +31,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavBarComponent,
     CategoriesComponent,
     FooterComponent,
+    MenLayoutComponent,
+    NewsComponent,
+    ClothingComponent,
+    SalesComponent,
+    DenimComponent,
   ],
   imports: [
     BrowserModule,

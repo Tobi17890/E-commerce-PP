@@ -21,7 +21,8 @@
       }
     }
     .logo {
-      font-size: 25px;
+      font-size: 28px;
+      font-weight: 600;
       position : relative;
       padding  : 0 0 0 35px;
       img {
@@ -51,4 +52,8 @@
       }
     }
   }
+}
+
+ion-icon:hover {
+  cursor: pointer;
 }
