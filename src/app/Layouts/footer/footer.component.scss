@@ -1,0 +1,70 @@
+// .example-section {
+//   margin: 12px 0;
+// }
+
+// .example-margin {
+//   margin: 0 12px;
+// }
+
+// ul {
+//   list-style-type: none;
+//   margin-top: 4px;
+// }
+// ::ng-deep .mat-mdc-checkbox .example-margin .custom-frame .mat-accent {
+//   & .mat-checkbox-background,
+//   .mat-checkbox-frame {
+//     border-radius: 70% !important;
+//   }
+// }
+.box {
+  display: flex;
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
+  ion-icon {
+    font-size: 20px;
+  }
+}
+
+footer {
+  display: flex;
+  height: 300px;
+  margin-top: 30px;
+  .container {
+    flex: 1;
+    width: 95%;
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    .row {
+      display: flex;
+      width: 100%;
+      align-items: start;
+      .col {
+        display: flex;
+        flex-direction: column;
+        h3 {
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+      }
+      .col:nth-child(1) {
+        padding-left: 35px;
+        h3:nth-child(1) {
+          width: 50%;
+          font-size: 32px;
+          font-family: "Leonora Premium Bold";
+          text-transform: uppercase;
+        }
+        .social-media {
+          display: flex;
+          ion-icon {
+            font-size: 30px;
+            margin: 10px;
+          }
+        }
+      }
+    }
+  }
+}

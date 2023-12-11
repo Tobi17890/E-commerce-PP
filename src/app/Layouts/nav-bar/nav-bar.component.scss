@@ -1,0 +1,54 @@
+.navBar-container {
+  width           : 100%;
+  height          : 100px;
+  display         : flex;
+  // position        : sticky;
+  // top             : 0;
+  flex-direction  : column;
+  background-color: #FFFFFF;
+  .navBar-icons {
+    width          : 80%;
+    margin         : auto;
+    align-items    : center;
+    display        : flex;
+    justify-content: space-between;
+    .title {
+      width: fit-content;
+      p {
+        text-transform: uppercase;
+        font-weight   : 500;
+        font-size     : 18px;
+      }
+    }
+    .logo {
+      font-size: 25px;
+      position : relative;
+      padding  : 0 0 0 35px;
+      img {
+        width        : 100px;
+        height       : 100px;
+        border-radius: 50%;
+        object-fit   : cover;
+      }
+    }
+    .icons {
+      display: flex;
+      gap    : 30px;
+      ion-icon {
+        width : 20px;
+        height: 20px;
+      }
+      .ion-icon {
+        display : flex;
+        position: relative;
+        span {
+          font-size: 12px;
+          height   : 0;
+          position : absolute;
+          right    : -5px;
+          bottom   : 14px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3>We take Email-Making Very Seriously. Sign Up to get In on it</h3>
+        <div class="example-container">
+          <mat-form-field>
+            <div class="box">
+              <div class="flex">
+                <mat-label>Enter your email</mat-label>
+                <input
+                  matInput
+                  placeholder="pat@example.com"
+                  [formControl]="email"
+                  required
+                />
+              </div>
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <mat-error *ngIf="email?.invalid">{{
+              getErrorMessage()
+            }}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="social-media">
+          <ion-icon name="logo-facebook"></ion-icon>
+          <ion-icon name="logo-instagram"></ion-icon>
+          <ion-icon name="logo-twitter"></ion-icon>
+          <ion-icon name="logo-pinterest"></ion-icon>
+          <ion-icon name="logo-youtube"></ion-icon>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3>Account</h3>
+        <p>Orders</p>
+        <p>Favorites</p>
+        <h3>How can we help?</h3>
+        <p>contact us</p>
+        <p>Order Status</p>
+        <p>Return & Exchange</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3>Top Searches</h3>
+        <p>Curcy Jeans</p>
+        <p>Sweaters & Cardigans</p>
+        <p>Jackets & Coats</p>
+        <p>Shirts & Tops</p>
+      </div>
+    </div>
+  </div>
+</footer>

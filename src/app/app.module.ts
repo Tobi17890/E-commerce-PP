@@ -1,18 +1,47 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AngularFireModule } from '@angular/fire/compat';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { MainlayoutComponent } from './Layouts/mainlayout/mainlayout.component';
+import { AuthGuard } from '@angular/fire/auth-guard';
+import { environment } from './environments/environment';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { provideFirebaseApp, initializeApp, getApp } from '@angular/fire/app';
+import { ReactiveFormsModule } from '@angular/forms';
+import { provideStorage, getStorage } from '@angular/fire/storage';
+import { NavBarComponent } from './Layouts/nav-bar/nav-bar.component';
+import { SharedModule } from './store/shared/shared.module';
+import { HomePageComponent } from './Layouts/home-page/home-page.component';
+import { CategoriesComponent } from './Layouts/categories/categories.component';
+import { FooterComponent } from './Layouts/footer/footer.component';
+import { MaterialsModule } from './store/materials/materials.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainlayoutComponent,
+    HomePageComponent,
+    NavBarComponent,
+    CategoriesComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
+    AngularFireModule.initializeApp(environment.firebase),
+    SharedModule,
+    MaterialsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthGuard],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
