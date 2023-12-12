@@ -1,0 +1,111 @@
+.container {
+    display       : flex;
+    flex-direction: column;
+    width         : 100%;
+    height        : 100%;
+   .overflow-scroll {
+      width         : 100%;
+      height        : 100%;
+      display       : flex;
+      flex-direction: column;
+      .title-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0;
+        .title {
+            font-size: 50px;
+            letter-spacing: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .sub-title {
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+      }
+      .box-container {
+        display: flex;
+        margin: 0 auto;
+        width: 90%;
+        align-items: center;
+        justify-content: space-between;
+        .boxs {
+            display: flex;
+            width: 60%;
+            align-items: center;
+            height: 100%;
+            justify-content: space-between;
+            .box {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin: 0 10px;	
+                justify-content: space-between;
+            }
+            ion-icon {
+                // font-size: 40px;
+            }
+        }
+      }
+   }
+}
+
+
+.dropbtn {
+    background-color: #f1f1f1;
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #000;
+    width: 100%;
+    .inner-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background-color: #f1f1f1;
+        ion-icon {
+            font-size: 25px;
+            padding: 0 20px 0 0;
+        }
+    }
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    overflow: auto;
+    z-index: 1;
+    width: 100%;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 10px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown a:hover {background-color: #ddd;}
+  
+  .show {display: block;}
+  .showCategory {display: block;}

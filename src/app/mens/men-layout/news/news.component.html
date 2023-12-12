@@ -1,1 +1,74 @@
-<p>news works!</p>
+<div class="container">
+  <div class="overflow-scroll">
+    <div class="title-container">
+      <h1 class="title">The Winter Collection</h1>
+      <p class="sub-title">
+        Your daily uniform, made with exceptional attention to detail.
+      </p>
+    </div>
+    <div class="box-container">
+      <div class="boxs">
+        <div class="box">
+          <div class="dropdown">
+            <div class="inner-box">
+              <button class="dropbtn" (click)="myFunction(showSort)">
+                Sort By: Relevance
+              </button>
+              <ion-icon name="swap-vertical-outline"></ion-icon>
+            </div>
+            <div #showSort class="dropdown-content">
+              <a href="#home">Home</a>
+              <a href="#about">About</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="dropdown">
+            <div class="inner-box">
+              <button class="dropbtn" (click)="myFunction(showCategory)">Category</button>
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </div>
+            <div #showCategory class="dropdown-content">
+              <a href="#home">Home</a>
+              <a href="#about">About</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="dropdown">
+            <div class="inner-box">
+              <button class="dropbtn" (click)="myFunction(showSize)">Size</button>
+              <ion-icon name="swap-vertical-outline"></ion-icon>
+            </div>
+            <div #showSize class="dropdown-content">
+              <a href="#home">Home</a>
+              <a href="#about">About</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="dropdown">
+            <div class="inner-box">
+              <button class="dropbtn" (click)="myFunction(showColor)">Color</button>
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </div>
+            <div #showColor class="dropdown-content">
+              <a href="#home">Home</a>
+              <a href="#about">About</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
+        </div>
+        <ion-icon name="options-outline"></ion-icon>
+      </div>
+      <div class="result">
+        <p>112 results</p>
+      </div>
+    </div>
+    <div class="grid-four-container"></div>
+  </div>
+  <app-footer></app-footer>
+</div>
