@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { COLOR_OBJECT } from 'src/app/store/static-data';
 
 @Component({
   selector: 'app-news',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
+
+  colorObject = COLOR_OBJECT
   ngOnInit(): void {
     this.setupOnClickEvent();
   }
