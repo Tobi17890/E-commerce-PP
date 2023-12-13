@@ -9,6 +9,7 @@ import { COLOR_OBJECT } from 'src/app/store/static-data';
 export class NewsComponent implements OnInit {
 
   colorObject = COLOR_OBJECT
+  color = COLOR_OBJECT?.map((item: any) => item.color)
   ngOnInit(): void {
     this.setupOnClickEvent();
   }

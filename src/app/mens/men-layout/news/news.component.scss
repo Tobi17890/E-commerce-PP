@@ -104,7 +104,7 @@
       text-transform: uppercase;
     }
     .container-lastest-drop {
-      width: 90%;
+      width: 97%;
       margin: 0 auto;
       display: grid;
       grid-template-rows: repeat(6, 1fr);
@@ -112,11 +112,12 @@
         display: flex;
         gap: 20px;
         .img {
-          flex: 1;
           margin-top: 20px;
           position: relative;
           display: flex;
-          overflow: hidden; 
+          flex-direction: column;
+          overflow: hidden;
+          width: 100%; 
           picture {
             width: 100%;
             img {
@@ -125,24 +126,77 @@
               object-fit: cover;
               transition: all 0.3s ease-in-out;
             }
-            img:hover {
-              transform: scale(1.03);
-            }
           }
           .absolute-flex {
             display: flex;
             position: absolute;
             align-items: center;
+            justify-content: center;
             right: 10px;
-            bottom: 10px;
-            a {
-              color: #fff;
-              text-decoration: none;
-            }
-            ion-icon[name="caret-forward-outline"] {
-              color: #fff;
+            top: 10px;
+            font-size: 20px;
+            background-color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            ion-icon[name="heart-outline"] {
+              color: #000;
             }
           }
+          .absolute-flex-btn {
+            position: absolute;
+            width: 100%;
+            bottom: 80px;
+            display: flex;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            button {
+              width: 90%;
+              margin: 0 auto;
+              padding: 10px;
+              background-color: #fff;
+              outline: none;
+              border: none;
+              font-size: 18px;
+              font-family: 700;
+            }
+          }
+          .brand-price-color-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 10px;
+            .brand-price-container {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              .branch, .price {
+                font-size: 14px;
+              }
+            }
+            .color-container {
+              display: flex;
+              gap: 10px;
+              margin-top: 10px;
+              .color {
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                border: 1px solid #ddd;
+                transition: all 0.3s ease-in-out;
+              }
+              .color:hover {
+                cursor: pointer;
+                border: 1.5px solid #000;
+              }
+            }
+          }
+        }
+        .img:hover .absolute-flex, .img:hover .absolute-flex-btn, .img:hover {
+          opacity: 1;
+          cursor: pointer;
         }
       }
     }
