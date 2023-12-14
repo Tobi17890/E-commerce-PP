@@ -1,0 +1,5 @@
+<button  (click)="onPress.emit()" [disabled]="disabled" [ngClass]="[transparent? 'transparent':'',rounded? 'rounded':'', ionicon? 'swot-icon-button':'', primary ? 'swot-primary' : 'secondary', 'load-more' ]" [type]="type">
+    <div class="btn-label">
+      {{label}}
+    </div>
+  </button>

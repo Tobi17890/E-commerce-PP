@@ -23,6 +23,8 @@ import { NewsComponent } from './mens/men-layout/news/news.component';
 import { ClothingComponent } from './mens/men-layout/clothing/clothing.component';
 import { SalesComponent } from './mens/men-layout/sales/sales.component';
 import { DenimComponent } from './mens/men-layout/denim/denim.component';
+import { AcessoriesComponent } from './mens/acessories/acessories.component';
+import { ButtonComponent } from './Buttons/button/button.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +38,8 @@ import { DenimComponent } from './mens/men-layout/denim/denim.component';
     ClothingComponent,
     SalesComponent,
     DenimComponent,
+    AcessoriesComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,

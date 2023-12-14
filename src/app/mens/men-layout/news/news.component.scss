@@ -29,11 +29,16 @@
     }
     .box-container {
       display: grid;
-      margin: 10px auto;
-      width: 85%;
-      grid-template-columns: repeat(2, 1fr);
+      margin: 0 auto;
+      top: 47px;
+      z-index: 1;
+      width: 100%;
+      position: sticky;
+      grid-template-columns: 60% 1fr;
       align-items: center;
       justify-content: space-between;
+      background: white;
+      padding: 15px 100px;
       .boxs {
         display: flex;  
         align-items: center;
@@ -55,7 +60,7 @@
     }
     .grid-four-container {
       width: 85%;
-      margin: 10px auto;
+      margin: 0 auto;
       display: grid;
       grid-template-rows: repeat(6, 1fr);
       .container-images {
@@ -98,16 +103,15 @@
     }
     .latest-drop {
       text-align: center;
-      margin: 20px;
+      margin: 70px 20px 20px 20px;
       font-size: 30px;
       letter-spacing: 5px;
       text-transform: uppercase;
     }
     .container-lastest-drop {
-      width: 97%;
+      width: 97%; 
       margin: 0 auto;
       display: grid;
-      grid-template-rows: repeat(6, 1fr);
       .container-images {
         display: flex;
         gap: 20px;
@@ -199,12 +203,17 @@
           cursor: pointer;
         }
       }
+      .btn-container {
+        margin: 30px 0 10px 0;
+        text-align: center;
+      }
     }
+
   }
 }
 
 .dropbtn {
-  background-color: #f1f1f1;
+  background-color: #fff;
   color: black;
   padding: 10px;
   font-size: 14px;
@@ -214,7 +223,7 @@
 
 .dropbtn:hover,
 .dropbtn:focus {
-  background-color: #f1f1f1;
+  background-color: #fff;
 }
 
 .dropdown {
@@ -222,12 +231,12 @@
   display: inline-block;
   border: 1px solid #000;
   width: 100%;
+  background: none;;
   .inner-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
     // width: 100%;
-    background-color: #f1f1f1;
     ion-icon {
       font-size: 25px;
       padding: 0 20px 0 0;
@@ -238,7 +247,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: #fff;
   overflow: auto;
   z-index: 1;
   width: 100%;

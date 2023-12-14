@@ -12,6 +12,7 @@ import { NewsComponent } from './mens/men-layout/news/news.component';
 import { SalesComponent } from './mens/men-layout/sales/sales.component';
 import { ClothingComponent } from './mens/men-layout/clothing/clothing.component';
 import { DenimComponent } from './mens/men-layout/denim/denim.component';
+import { AcessoriesComponent } from './mens/acessories/acessories.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'men/clothing',
         component: ClothingComponent
+      },
+      {
+        path: 'men/accessories',
+        component: AcessoriesComponent
       },
       {
         path: 'men/sales',
