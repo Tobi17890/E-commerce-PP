@@ -61,6 +61,10 @@
   transition      : all 0.7s ease-in-out;
 }
 
+.dropbtn:hover {
+  cursor: pointer;
+}
+
 /* Create three equal columns that floats next to each other */
 .column {
   float  : left;

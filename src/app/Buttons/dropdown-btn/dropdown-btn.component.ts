@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
-import { COLOR_DENIM_OBJECT, COLOR_OBJECT } from 'src/app/store/static-data';
+import { Component, OnInit } from '@angular/core';
+import { COLOR_OBJECT } from 'src/app/store/static-data';
 
 @Component({
-  selector: 'app-denim',
-  templateUrl: './denim.component.html',
-  styleUrls: ['./denim.component.scss']
+  selector: 'app-dropdown-btn',
+  templateUrl: './dropdown-btn.component.html',
+  styleUrls: ['./dropdown-btn.component.scss'],
 })
-export class DenimComponent {
-  colorObject = COLOR_DENIM_OBJECT;
-  color = COLOR_DENIM_OBJECT?.map((item: any) => item.color);
-  isHovering = false;
+export class DropdownBtnComponent implements OnInit {
+  colorObject = COLOR_OBJECT;
+  color = COLOR_OBJECT?.map((item: any) => item.color);
   ngOnInit(): void {
     this.setupOnClickEvent();
   }
@@ -31,13 +30,5 @@ export class DenimComponent {
         }
       }
     };
-  }
-
-  onMouseOver() {
-    this.isHovering = true;
-  }
-
-  onMouseOut() {
-    this.isHovering = false;
   }
 }

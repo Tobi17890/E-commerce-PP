@@ -1,0 +1,66 @@
+.box-container {
+    display: grid;
+    margin: 0 auto;
+    top: 47px;
+    z-index: 1;
+    width: 100%;
+    position: sticky;
+    grid-template-columns: 60% 1fr;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 15px 100px;
+    .boxs {
+      display: flex;  
+      align-items: center;
+      height: 100%;
+      justify-content: space-between;
+      .box {
+        display: flex;
+        align-items: center;
+        margin: 0 10px;
+        justify-content: space-between;
+      }
+      ion-icon.icon {
+        font-size: 35px;
+      }
+    }
+    .result {
+      text-align: end;
+    }
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    overflow: auto;
+    z-index: 1;
+    width: 100%;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    .flex-checkbox {
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+    }
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 10px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown a:hover {
+    background-color: #ddd;
+  }
+  
+  .show {
+    display: block;
+  }
+  .showCategory {
+    display: block;
+  }

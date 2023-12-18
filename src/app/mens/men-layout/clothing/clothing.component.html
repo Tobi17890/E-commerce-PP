@@ -1,1 +1,881 @@
-<p>clothing works!</p>
+<div class="flex-col-container">
+    <!-- title-block -->
+    <div class="title-container">
+      <h2>CLOTHING</h2>
+      <!-- <p>
+        Find the fit that works for you, with vintage-inspired designs that put
+        quality first. Wanna learn <br />
+        more?
+      </p> -->
+    </div>
+    <div class="box-container">
+      <div class="boxs">
+        <div class="box">
+          <div class="dropdown">
+            <div class="inner-box">
+              <button class="dropbtn" (click)="myFunction(showSort)">
+                Sort By: Relevance
+              </button>
+              <ion-icon name="swap-vertical-outline"></ion-icon>
+            </div>
+            <div #showSort class="dropdown-content">
+              <a href="#home">Relevance</a>
+              <a href="#about">Best Sellers</a>
+              <a href="#contact">Price: High - Low</a>
+              <a href="">Price: Low - High</a>
+              <a href="">Newest</a>
+              <a href="">Top Rated</a>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="dropdown">
+            <div class="inner-box">
+              <button class="dropbtn" (click)="myFunction(showCategory)">
+                Category
+              </button>
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </div>
+            <div #showCategory class="dropdown-content">
+              <a href="#home">Shirts</a>
+              <a href="#about">jackets</a>
+              <a href="#contact">Sweaters</a>
+              <a>Pants</a>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="dropdown">
+            <div class="inner-box">
+              <button class="dropbtn" (click)="myFunction(showSize)">Size</button>
+              <ion-icon name="swap-vertical-outline"></ion-icon>
+            </div>
+            <div #showSize class="dropdown-content">
+              <a href="#home">Home</a>
+              <a href="#about">About</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <button class="dropdown" (click)="myFunction(showColor)">
+            <div class="inner-box">
+              <button class="dropbtn">Color</button>
+              <ion-icon
+                name="chevron-down-outline"
+                (click)="myFunction(showColor)"
+              ></ion-icon>
+            </div>
+            <div #showColor class="dropdown-content">
+              <div class="flex-checkbox" *ngFor="let color of colorObject">
+                <input type="checkbox" />
+                <a>{{ color?.name }}</a>
+              </div>
+            </div>
+          </button>
+        </div>
+        <ion-icon name="options-outline" class="icon"></ion-icon>
+      </div>
+      <div class="result">
+        <p>89 results</p>
+      </div>
+    </div>
+    <div class="grid-four-columns">
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NO015_SU3175_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NO015_SU3175_d1?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NN993_WZ4080_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NN993_WZ4080_d1?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NG313_NA0229_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NG313_NA0229_d1?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div class="color cambridge active"></div>
+          <div class="color mainshore"></div>
+          <div class="color handlock"></div>
+          <div class="color cedarbrooke"></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NM488_NA6710_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NM488_NA6710_d1?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+  
+    </div>
+    <div class="grid-four-columns">
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NG313_NA0229_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NG313_NA0229_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NG313_GY5923_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NG313_GY5923_d1?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NG313_BL8347_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NG313_BL8347_d1?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NM223_DM7041_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NM223_DM7041_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <img
+            src="https://www.madewell.com/images/NM223_DM7041_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <img
+            src="https://www.madewell.com/images/NM223_DM7041_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <img
+            src="https://www.madewell.com/images/NM223_DM7041_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div class="color cambridge active"></div>
+          <div class="color mainshore"></div>
+          <div class="color handlock"></div>
+          <div class="color cedarbrooke"></div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-four-columns">
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NG313_BR5736_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NG313_BR5736_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div class="color cambridge active"></div>
+          <div class="color mainshore"></div>
+          <div class="color handlock"></div>
+          <div class="color cedarbrooke"></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NG313_GY7560_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NG313_GY7560_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NG313_GR5624_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NG313_GR5624_d1?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NG305_GY7560_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NG305_GY7560_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+  
+    </div>
+    <div class="grid-four-columns">
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NG305_GR5624_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NG305_GR5624_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NM223_DM7041_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NM223_DM7041_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div class="color cambridge active"></div>
+          <div class="color mainshore"></div>
+          <div class="color handlock"></div>
+          <div class="color cedarbrooke"></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NM222_DM7304_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NM222_DM7304_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NJ015_DM6557_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NJ015_DM6557_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+  
+    </div>
+    <div class="grid-four-columns">
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/MA242_DM4382_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/MA242_DM4382_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NN527_GY5923_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NN527_GY5923_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NM224_DM7039_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NM224_DM7039_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NM221_DM7026_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NM221_DM7026_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div class="color cambridge active"></div>
+          <div class="color mainshore"></div>
+          <div class="color handlock"></div>
+          <div class="color cedarbrooke"></div>
+        </div>
+      </div>
+    </div>
+  
+  
+    <div class="grid-four-columns">
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/ND477_DM5723_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/ND477_DM5723_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/NJ003_DM5535_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/NJ003_DM5535_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/ND475_DM5826_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/ND475_DM5826_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />  
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div class="color cambridge active"></div>
+          <div class="color mainshore"></div>
+          <div class="color handlock"></div>
+          <div class="color cedarbrooke"></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="img">
+          <img
+            src="https://www.madewell.com/images/AH665_BK5201_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+          />
+          <div class="img-absolute">
+            <ion-icon name="heart-outline" class="heart"></ion-icon>
+          </div>
+          <img
+            src="https://www.madewell.com/images/AH665_BK5201_d5?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+            alt=""
+            class="absolute"
+          />
+          <div class="quick-shop">
+            <p>Quick Shop</p>
+          </div>
+        </div>
+        <div class="description-price">
+          <p class="decription">
+            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+          </p>
+          <p class="price">$12.0000</p>
+        </div>
+        <div class="color-container">
+          <div
+            class="color"
+            *ngFor="let color of colorObject"
+            [style.background-color]="color.color"
+          ></div>
+        </div>
+      </div>
+  
+    </div>
+    <div class="btn-container">
+      <app-button label="load more"></app-button>
+    </div>
+</div>

@@ -10,3 +10,12 @@ export const COLOR_OBJECT = [
   { key: 1, color: '#FFEF00', background: '#FDEE00', name: 'Yellow' },
   { key: 2, color: '#80FF00', background: '#00FF00', name: 'Green' },
 ];
+
+export const COLOR_DENIM_OBJECT = [
+  { key: 1, color: '#161824', background: '#161824', name: 'Black' },
+  { key: 2, color: '#472B21', background: '#472B21', name: 'Brown' },
+  { key: 3, color: '##3A3B1F', background: '#3A3B1F', name: 'Denim' },
+  { key: 4, color: '#E5E5D8', background: '#E5E5D8', name: 'Blue' },
+  { key: 1, color: '#313336', background: '#313336', name: 'Grey' },
+  { key: 2, color: '#D5C3AA', background: '#D5C3AA', name: 'Purple' },
+];

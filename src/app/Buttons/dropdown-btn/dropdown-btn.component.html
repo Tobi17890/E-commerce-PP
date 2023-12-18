@@ -1,0 +1,74 @@
+<div class="box-container">
+    <div class="boxs">
+      <div class="box">
+        <div class="dropdown">
+          <div class="inner-box">
+            <button class="dropbtn" (click)="myFunction(showSort)">
+              Sort By: Relevance
+            </button>
+            <ion-icon name="swap-vertical-outline"></ion-icon>
+          </div>
+          <div #showSort class="dropdown-content">
+            <a href="#home">Relevance</a>
+            <a href="#about">Best Sellers</a>
+            <a href="#contact">Price: High - Low</a>
+            <a href="">Price: Low - High</a>
+            <a href="">Newest</a>
+            <a href="">Top Rated</a>
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="dropdown">
+          <div class="inner-box">
+            <button class="dropbtn" (click)="myFunction(showCategory)">
+              Category
+            </button>
+            <ion-icon name="chevron-down-outline"></ion-icon>
+          </div>
+          <div #showCategory class="dropdown-content">
+            <a href="#home">Shirts</a>
+            <a href="#about">jackets</a>
+            <a href="#contact">Sweaters</a>
+            <a>Pants</a>
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="dropdown">
+          <div class="inner-box">
+            <button class="dropbtn" (click)="myFunction(showSize)">
+              Size
+            </button>
+            <ion-icon name="swap-vertical-outline"></ion-icon>
+          </div>
+          <div #showSize class="dropdown-content">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <button class="dropdown" (click)="myFunction(showColor)">
+          <div class="inner-box">
+            <button class="dropbtn">Color</button>
+            <ion-icon
+              name="chevron-down-outline"
+              (click)="myFunction(showColor)"
+            ></ion-icon>
+          </div>
+          <div #showColor class="dropdown-content">
+            <div class="flex-checkbox" *ngFor="let color of colorObject">
+              <input type="checkbox" />
+              <a>{{ color?.name }}</a>
+            </div>
+          </div>
+        </button>
+      </div>
+      <ion-icon name="options-outline" class="icon"></ion-icon>
+    </div>
+    <div class="result">
+      <p>112 results</p>
+    </div>
+  </div>

@@ -25,6 +25,7 @@ import { SalesComponent } from './mens/men-layout/sales/sales.component';
 import { DenimComponent } from './mens/men-layout/denim/denim.component';
 import { AcessoriesComponent } from './mens/acessories/acessories.component';
 import { ButtonComponent } from './Buttons/button/button.component';
+import { DropdownBtnComponent } from './Buttons/dropdown-btn/dropdown-btn.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { ButtonComponent } from './Buttons/button/button.component';
     DenimComponent,
     AcessoriesComponent,
     ButtonComponent,
+    DropdownBtnComponent,
   ],
   imports: [
     BrowserModule,
