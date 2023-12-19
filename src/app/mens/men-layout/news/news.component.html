@@ -6,8 +6,8 @@
         Your daily uniform, made with exceptional attention to detail.
       </p>
     </div>
-    <div class="box-container">
-      <div class="boxs">
+    <div class="box-container" #box_container>
+      <div class="boxs" #boxs>
         <div class="box">
           <div class="dropdown">
             <div class="inner-box">
@@ -26,7 +26,7 @@
             </div>
           </div>
         </div>
-        <div class="box">
+        <div class="box" #category>
           <div class="dropdown">
             <div class="inner-box">
               <button class="dropbtn" (click)="myFunction(showCategory)">
@@ -42,7 +42,7 @@
             </div>
           </div>
         </div>
-        <div class="box">
+        <div class="box" #size>
           <div class="dropdown">
             <div class="inner-box">
               <button class="dropbtn" (click)="myFunction(showSize)">
@@ -57,7 +57,7 @@
             </div>
           </div>
         </div>
-        <div class="box">
+        <div class="box" #color>
           <button class="dropdown" (click)="myFunction(showColor)">
             <div class="inner-box">
               <button class="dropbtn">Color</button>

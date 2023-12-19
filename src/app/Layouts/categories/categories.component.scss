@@ -1,64 +1,77 @@
 .navbar {
-  display         : flex ;
-  justify-content : center;
-  position        : sticky;
-  z-index         : 2;
-  top             : 0;
-  background-color: #FFFFFF;
-  border-bottom   : rgba(0, 0, 0, 0.2) 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-bottom: rgba(0, 0, 0, 0.2) 1px solid;
 }
+.dropdown-container {
+  display: flex;
+  justify-content: space-between;
+}
+.navbar.centered {
+  padding: 30px;
+  align-items: center;
+  justify-content: space-between;
 
+}
 .navbar a {
-  float          : left;
-  font-size      : 16px;
-  color          : black;
-  text-align     : center;
+  float: left;
+  font-size: 16px;
+  color: black;
+  text-align: center;
   text-decoration: none;
-  transition     : all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .dropdown {
-  float     : left;
-  overflow  : hidden;
+  float: left;
+  overflow: hidden;
   transition: all 0.7s ease-in-out;
 }
 
 .dropdown .dropbtn {
-  font-size       : 16px;
-  font-weight     : bold;
-  border          : none;
-  outline         : none;
-  color           : black;
-  padding         : 14px 16px;
-  text-transform  : uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  text-transform: uppercase;
   background-color: inherit;
-  margin          : 0;
-  transition      : all 0.3s ease-in-out;
+  margin: 0;
+  transition: all 0.3s ease-in-out;
 }
 
 .navbar a:hover,
-.dropdown:hover  {
+.dropdown:hover {
   text-decoration: underline;
 }
 
 .dropdown:hover .dropbtn {
-  border-bottom: 1px solid #333;	
+  border-bottom: 1px solid #333;
 }
 
 .dropdown-content {
-  display   : none;
-  position  : absolute;
-  width     : 100%;
-  left      : 0;
+  display: none;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  border-radius: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index   : 1;
+  z-index: 3;
   transition: all 0.7s ease-in-out;
 }
 
 .dropdown:hover .dropdown-content {
-  background-color: #FFFFFF;
-  display         : block;
-  transition      : all 0.7s ease-in-out;
+  background-color: #ffffff;
+  display: block;
+  z-index: 3;
+  transition: all 0.7s ease-in-out;
 }
 
 .dropbtn:hover {
@@ -67,22 +80,22 @@
 
 /* Create three equal columns that floats next to each other */
 .column {
-  float  : left;
-  width  : 100%;
+  float: left;
+  width: 100%;
   padding: 10px;
   .flex-img {
-    display        : flex;
-    width          : 100%;
-    align-items    : center;
-    flex-direction : column;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
     justify-content: center;
     img {
-      width     : 285px;
-      height    : 365px;
+      width: 285px;
+      height: 365px;
       object-fit: cover;
     }
     p {
-      padding       : 8px 0; 
+      padding: 8px 0;
       text-transform: uppercase;
     }
   }
@@ -93,23 +106,59 @@
 }
 
 .column a {
-  float          : none;
-  color          : black;
-  padding        : 4px;
-  font-size      : 14px;
+  float: none;
+  color: black;
+  padding: 4px;
+  font-size: 14px;
   text-decoration: none;
-  display        : block;
-  text-align     : left;
+  display: block;
+  text-align: left;
 }
 .row {
   display: flex;
-  width  : 50%;
-  margin : auto;
+  width: 50%;
+  margin: auto;
 }
 /* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
-  clear  : both;
+  clear: both;
+}
 
+.icons {
+  display: flex;
+  gap: 30px;
+  ion-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .ion-icon {
+    display: flex;
+    position: relative;
+    span {
+      font-size: 12px;
+      position: absolute;
+      right: -5px;
+      top: 10px;
+      bottom: 14px;
+    }
+  }
+}
+.logo {
+  display: flex;
+  font-size: 28px;
+  font-weight: 600;
+  position : relative;
+  padding  : 0 0 0 35px;
+  img {
+    width        : 100px;
+    height       : 100px;
+    border-radius: 50%;
+    object-fit   : cover;
+  }
+}
+
+.logo:hover, .icons:hover {
+  cursor: pointer;
 }
