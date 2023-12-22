@@ -128,6 +128,23 @@
             align-items    : center;
             justify-content: center;
             position       : absolute;
+            h3 {
+                font-size     : 2.5rem;
+                font-weight   : 600;
+                padding       : 10px;
+                text-transform: uppercase;
+                color         : #fff;
+            }
+            p {
+                font-size     : 1rem;
+                font-weight   : 600;
+                padding       : 10px;
+                text-transform: uppercase;
+                color         : #fff;
+            }
+            .btn {
+                padding: 10px;
+            }
         }
     }
     
@@ -144,27 +161,24 @@
         align-items   : center;
         padding       : 40px;
         .title {
-            h3, p {
-                padding   : 10px;
+            h3 {
+                font-size: 3em;
+                padding: 10px;
+                letter-spacing: 4px;
+                text-align: center;
+                text-transform: uppercase;
+            }
+            p {
+                letter-spacing: 10px;
+                font-size: 2.2em;
+                padding: 10px;
                 text-align: center;
             }
         }
         .btn {
-            background-color: #000;
-            color           : #fff;
-            padding         : 10px 20px;
-            font-size       : 0.9rem;
-            font-weight     : 600;
-            outline         : none;
-            border          : none;
+            padding: 10px;
             button {
                 background-color: #000;
-                color           : #fff;
-                padding         : 10px 20px;
-                font-size       : 0.9rem;
-                font-weight     : 600;
-                outline         : none;
-                border          : none;
                 &:hover {
                     background-color: #fff;
                     color           : #000;
@@ -211,8 +225,9 @@
             padding       : 40px;
             .title {
                 h3 {
-                    font-size : 2em;
-                    padding   : 10px;
+                    font-size: 2.5rem;
+                    padding: 10px;
+                    letter-spacing: 5px;
                     text-align: center;
                     span {
                         font-size: 4rem;

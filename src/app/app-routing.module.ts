@@ -13,6 +13,7 @@ import { SalesComponent } from './mens/men-layout/sales/sales.component';
 import { ClothingComponent } from './mens/men-layout/clothing/clothing.component';
 import { DenimComponent } from './mens/men-layout/denim/denim.component';
 import { AcessoriesComponent } from './mens/acessories/acessories.component';
+import { ReviewBeforeAddingComponent } from './mens/review-before-adding/review-before-adding.component';
 
 const routes: Routes = [
   {
@@ -20,7 +21,6 @@ const routes: Routes = [
     component: HomePageComponent,
     // canActivate: [AuthGuard],
     // data : { authGuardPipe: () => redirectUnauthorizedTo(['/']) },
-
   },
   {
     path: 'all',
@@ -28,26 +28,29 @@ const routes: Routes = [
     children: [
       {
         path: 'men/new',
-        component: NewsComponent
+        component: NewsComponent,
       },
       {
         path: 'men/denim',
-        component: DenimComponent
+        component: DenimComponent,
       },
       {
         path: 'men/clothing',
-        component: ClothingComponent
+        component: ClothingComponent,
       },
       {
         path: 'men/accessories',
-        component: AcessoriesComponent
+        component: AcessoriesComponent,
       },
       {
         path: 'men/sales',
-        component: SalesComponent
+        component: SalesComponent,
       },
-
-    ]
+    ],
+  },
+  {
+    path: 'reviews',
+    component: ReviewBeforeAddingComponent,
   },
   {
     path: 'admin',
@@ -55,9 +58,7 @@ const routes: Routes = [
     // canActivate: [AuthGuard],
     // data: { authGuardPipe: () => redirectUnauthorizedTo(['/']) },
     loadChildren: () =>
-      import(`./modules/admin/admin.module`).then(
-        (m) => m.AdminModule
-      ),
+      import(`./modules/admin/admin.module`).then((m) => m.AdminModule),
   },
   {
     path: 'user',
@@ -65,14 +66,12 @@ const routes: Routes = [
     // canActivate: [AuthGuard],
     // data: { authGuardPipe: () => redirectUnauthorizedTo(['/']) },
     loadChildren: () =>
-      import(`./modules/user/user.module`).then(
-        (m) => m.UserModule
-      ),
-  }
+      import(`./modules/user/user.module`).then((m) => m.UserModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

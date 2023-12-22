@@ -1,0 +1,228 @@
+.box-container {
+  display: grid;
+  margin: 0 auto;
+  top: 106px;
+  z-index: 2;
+  width: 100%;
+  position: sticky;
+  grid-template-columns: 60% 1fr;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 15px 100px;
+  .boxs {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+    .box {
+      display: flex;
+      align-items: center;
+      margin: 0 10px;
+      justify-content: space-between;
+    }
+    ion-icon.icon {
+      font-size: 35px;
+    }
+  }
+  .result {
+    text-align: end;
+  }
+}
+
+.dropbtn {
+  background-color: #fff;
+  color: black;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #fff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #000;
+  width: 100%;
+  background: none;
+  .inner-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // width: 100%;
+    ion-icon {
+      font-size: 25px;
+      padding: 0 20px 0 0;
+    }
+  }
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  overflow: auto;
+  z-index: 3;
+  width: 100%;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  .flex-checkbox {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+  }
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+.showCategory {
+  display: block;
+}
+
+
+// main styling
+
+.container-review {
+  
+  display: flex;
+  width: calc(100% - 45px);	
+  margin: 30px auto;
+  .grid-two-columns {
+    width: 75%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    .styling {
+      width: 100%;
+      display: flex;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .how-to-style {
+        display: flex;
+        position: absolute;
+        padding: 5px;
+        background-color: #FFFFFF;
+        border: 1px solid #000;
+        border-radius: 20px;
+        margin: 20px;
+        p {
+          font-size: 14px;
+          text-transform: uppercase;
+          font-weight: 600;
+          margin: 0 5px;
+        }
+      }
+      .how-to-style:hover {
+        cursor: pointer;
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    
+    }
+  }
+  .size-container {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin-left: 30px;
+    .view {
+      display: flex;
+      p {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0 5px;
+      }
+    }
+    .description {
+      margin: 20px 0;
+      display: flex;
+      p {
+        font-size: 26px;
+        font-weight: 300;
+        margin: 0 5px;
+      }
+    }
+    .price {
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      p {
+        font-size: 22px;
+        font-weight: 900;
+        margin: 0 5px;
+      }
+      span {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0 5px;
+      }
+    }
+    .colors {
+      display: flex;
+      flex-direction: column;
+      margin: 5px 0;
+      justify-content: center;
+      p {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0 5px;
+      }
+      .flex {
+        display: flex;
+        .circle-color {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          margin: 8px 8px 8px 0;
+          background-color: #DFCEBF;
+        }
+        .circle-color:hover {
+          cursor: pointer;
+          box-shadow: 0 0 0 5px #000;
+        }
+      }
+    }
+    .size {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      .box-size {
+        padding: 10px 20px;
+        border: 1px solid #000;
+        margin: 8px 8px 8px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 600;
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
