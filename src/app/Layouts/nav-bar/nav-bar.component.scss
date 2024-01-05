@@ -1,62 +1,130 @@
 .navBar-container {
-  width           : 100%;
-  height          : 100px;
-  display         : flex;
-  // position        : sticky;
-  // top             : 0;
-  flex-direction  : column;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
   background-color: #FFFFFF;
-  .navBar-icons {
-    width          : 80%;
-    margin         : auto;
-    align-items    : center;
-    display        : flex;
-    justify-content: space-between;
-    .title {
-      width: fit-content;
-      p {
-        text-transform: uppercase;
-        font-weight   : 500;
-        font-size     : 18px;
-      }
-      p:hover {
-        cursor: pointer;
-      }
-    }
-    .logo {
-      font-size: 28px;
-      font-weight: 600;
-      position : relative;
-      padding  : 0 0 0 35px;
-      img {
-        width        : 100px;
-        height       : 100px;
-        border-radius: 50%;
-        object-fit   : cover;
-      }
-    }
-    .icons {
-      display: flex;
-      gap    : 30px;
-      ion-icon {
-        width : 20px;
-        height: 20px;
-      }
-      .ion-icon {
-        display : flex;
-        position: relative;
-        span {
-          font-size: 12px;
-          height   : 0;
-          position : absolute;
-          right    : -5px;
-          bottom   : 14px;
-        }
-      }
-    }
-  }
+}
+
+.navBar-icons {
+  width: 80%;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title p {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.title p:hover {
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 600;
+  position: relative;
+  padding: 0 0 0 35px;
+}
+
+.logo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.icons {
+  display: flex;
+  gap: 30px;
+}
+
+ion-icon {
+  width: 20px;
+  height: 20px;
+  z-index: 1;
 }
 
 ion-icon:hover {
   cursor: pointer;
+}
+
+ion-icon[name="person-outline"] {
+  color: #000000;
+}
+
+.expanding-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  .hover {
+    display: flex;
+    width: 80%;
+    margin: 10px auto;
+    flex-direction: column;
+    .hover-title {
+      font-size: 14px;
+      font-weight: 500;
+      padding: 20px 0;
+      p {
+        font-size: 18px;
+        font-weight: 600;
+        color: #000000;
+        text-decoration: none;
+      }
+    }
+    hr {
+      margin: 20px 0 0 0;
+    }
+    .hover-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 20px 0;
+      a {
+        font-size: 16px;
+        font-weight: 400;
+        color: #000000;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  
+  }
+
+}
+
+.icon-item:hover .expanding-content {
+  width: 320px;
+  display: flex;
+  z-index: 4;
+}
+
+.ion-icon {
+  display: flex;
+  position: relative;
+}
+
+.ion-icon span {
+  font-size: 12px;
+  height: 0;
+  position: absolute;
+  right: -5px;
+  bottom: 14px;
 }

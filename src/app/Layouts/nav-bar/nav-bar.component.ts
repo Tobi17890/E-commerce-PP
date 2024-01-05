@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent {
+  constructor(private el: ElementRef, private renderer: Renderer2) {}
 
+  onHover() {
+    this.renderer.addClass(document.querySelector('ion-icon[name="person-outline"]'), 'hover');
+  }
+
+  offHover() {
+    this.renderer.removeClass(document.querySelector('ion-icon[name="person-outline"]'), 'hover');
+  }
 }
