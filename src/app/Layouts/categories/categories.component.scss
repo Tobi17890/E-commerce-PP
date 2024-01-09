@@ -170,3 +170,8 @@
 .logo:hover, .icons:hover {
   cursor: pointer;
 }
+
+.dropdown.active {
+  border-bottom: 1px solid #333;
+}
+

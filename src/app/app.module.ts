@@ -27,6 +27,7 @@ import { AcessoriesComponent } from './mens/acessories/acessories.component';
 import { ButtonComponent } from './Buttons/button/button.component';
 import { DropdownBtnComponent } from './Buttons/dropdown-btn/dropdown-btn.component';
 import { ReviewBeforeAddingComponent } from './mens/review-before-adding/review-before-adding.component';
+import { LogInComponent } from './store/log-in/log-in.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { ReviewBeforeAddingComponent } from './mens/review-before-adding/review-
     ButtonComponent,
     DropdownBtnComponent,
     ReviewBeforeAddingComponent,
+    LogInComponent,
   ],
   imports: [
     BrowserModule,
