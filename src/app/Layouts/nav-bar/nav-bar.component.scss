@@ -230,7 +230,7 @@ ion-icon[name="person-outline"] {
       display: flex;
       justify-content: center;
       padding: 20px 0;
-      button {
+      button.btn-check-out {
         width: 80%;
         padding: 10px 20px;
         border: 1px solid #000;
@@ -247,7 +247,17 @@ ion-icon[name="person-outline"] {
       }
     }
   }
+}
 
+
+
+button.btn-check-out:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+button.decreased:hover, button.increased:hover {
+  cursor: pointer;
 }
 
 .icon-item:hover:not(.expanded) .expanding-content {

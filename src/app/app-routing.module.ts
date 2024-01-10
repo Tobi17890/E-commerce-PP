@@ -14,6 +14,7 @@ import { ClothingComponent } from './mens/men-layout/clothing/clothing.component
 import { DenimComponent } from './mens/men-layout/denim/denim.component';
 import { AcessoriesComponent } from './mens/acessories/acessories.component';
 import { ReviewBeforeAddingComponent } from './mens/review-before-adding/review-before-adding.component';
+import { CartComponent } from './mens/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'reviews',
     component: ReviewBeforeAddingComponent,
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   },
   {
     path: 'admin',
