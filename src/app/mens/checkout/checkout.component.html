@@ -1,0 +1,55 @@
+<div class="navBar-container">
+    <div class="navBar-icons">
+      <div class="logo">
+        <div class="logo" [routerLink]="['/']">Outterfithub</div>
+      </div>
+    </div>
+  </div>
+<div class="container-delivery">
+    <form class="form">
+        <div class="name-container">
+            <div class="name">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name..">
+            </div>
+            <div class="surname">
+                <label for="surname">Surname</label>
+                <input type="text" id="surname" name="surname" placeholder="Your surname..">
+            </div>
+        </div>
+        <div class="location">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" placeholder="Your location..">
+        </div>
+        <div class="house-street-number">
+            <div class="house-number">
+                <label for="house-number">House number</label>
+                <input type="text" id="house-number" name="house-number" placeholder="Your house number..">
+            </div>
+            <div class="street">
+                <label for="street">Street</label>
+                <input type="text" id="street" name="street" placeholder="Your street..">
+            </div>
+        </div>
+        <hr>
+        <div class="phone-number">
+            <label for="phone-number">Phone number</label>
+            <input type="text" id="phone-number" name="phone-number" placeholder="Your phone number..">
+        </div>
+        <div class="email-address">
+            <label for="email-address">Email address</label>
+            <input type="text" id="email-address" name="email-address" placeholder="Your email address..">
+        </div>
+        <div class="btn-container">
+            <div class="back-to-cart-btn" routerLink="/cart">
+                Back to cart
+            </div>
+            <div class="btn-payment">
+                Continue to payment
+            </div>
+        </div>
+    </form>
+
+</div>
+
+

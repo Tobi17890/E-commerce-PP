@@ -29,6 +29,7 @@ import { DropdownBtnComponent } from './Buttons/dropdown-btn/dropdown-btn.compon
 import { ReviewBeforeAddingComponent } from './mens/review-before-adding/review-before-adding.component';
 import { LogInComponent } from './store/log-in/log-in.component';
 import { CartComponent } from './mens/cart/cart.component';
+import { CheckoutComponent } from './mens/checkout/checkout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,7 @@ import { CartComponent } from './mens/cart/cart.component';
     ReviewBeforeAddingComponent,
     LogInComponent,
     CartComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
