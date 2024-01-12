@@ -156,4 +156,8 @@ export class DataService {
   catogryRef() {
     return collection(this.db, `categories`);
   }
+
+  userRef() {
+    return collection(this.db, `users`);
+  }
 }

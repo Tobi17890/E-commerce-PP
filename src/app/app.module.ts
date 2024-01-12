@@ -30,6 +30,15 @@ import { ReviewBeforeAddingComponent } from './mens/review-before-adding/review-
 import { LogInComponent } from './store/log-in/log-in.component';
 import { CartComponent } from './mens/cart/cart.component';
 import { CheckoutComponent } from './mens/checkout/checkout.component';
+import { LoginDialogComponent } from './store/login-dialog/login-dialog.component';
+import player from 'lottie-web';
+import { LottieModule } from 'ngx-lottie';
+// import { UserStore } from './store/log-in/store';
+
+export function playerFactory() {
+  return player;
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +59,7 @@ import { CheckoutComponent } from './mens/checkout/checkout.component';
     LogInComponent,
     CartComponent,
     CheckoutComponent,
+    LoginDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,8 +71,10 @@ import { CheckoutComponent } from './mens/checkout/checkout.component';
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     AngularFireModule.initializeApp(environment.firebase),
+    LottieModule.forRoot({ player: playerFactory }),
     SharedModule,
     MaterialsModule,
+    
   ],
   providers: [AuthGuard],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

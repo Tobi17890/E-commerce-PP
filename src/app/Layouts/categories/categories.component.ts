@@ -1,5 +1,10 @@
 import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { User } from 'firebase/auth';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/auth.service';
+import { UserStoreService } from 'src/app/shared/user-store.service';
 import { LogInComponent } from 'src/app/store/log-in/log-in.component';
 
 @Component({
@@ -13,13 +18,30 @@ export class CategoriesComponent {
   @ViewChild('icons') icons!: ElementRef;
   @ViewChild('bag') bag!: ElementRef;
   @ViewChild('iconItem') iconItem!: ElementRef;
+  
   closeClicked = false;
   mouseInBag = false;
+  loading = true;
+  user$!: Observable<User | null>;
+  user: any;
 
   constructor( 
     private el: ElementRef, 
     private renderer: Renderer2, 
-    public dialog: MatDialog) {}
+    public dialog: MatDialog,
+    private auth: AuthService,
+    private router: Router,
+    private userStore: UserStoreService) {
+      this.user$ = this.auth.user$;
+      this.user$.subscribe(user => {
+        if (user) {
+          const uid = user.uid;
+          this.userStore.getUser(uid).then((res) => {
+            this.user = res;
+          });
+        }
+      });
+    }
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
     this.checkScroll();
@@ -80,5 +102,18 @@ export class CategoriesComponent {
     }
   }
 
+  onLogout() {
+    console.log('logout');
+    this.auth.isLoading.next(true);
+    this.auth.isLoggingOut.next(true);
+    this.auth.signOut().then(() => {
+      setTimeout(() => {
+        this.auth.isLoading.next(false);
+        this.auth.isLoggingOut.next(false);
+      }, 2000); 
+    });
+  }
+  
+  
 
 }

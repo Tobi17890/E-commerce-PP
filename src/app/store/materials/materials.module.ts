@@ -7,7 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog'
 import {MatRadioModule} from '@angular/material/radio';
-;
+import { UserStore } from '../log-in/store';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 export class FormFieldOverviewExample {}
 
@@ -19,7 +20,10 @@ export class FormFieldOverviewExample {}
     MatSelectModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressBarModule
   ],
+  declarations: [],
+  providers: [UserStore],
 })
 export class MaterialsModule {}

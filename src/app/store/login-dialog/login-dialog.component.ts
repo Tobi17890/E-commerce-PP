@@ -1,20 +1,26 @@
-import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import { Component, EventEmitter, Inject, Output } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { User } from 'firebase/auth';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
+
 @Component({
-  selector: 'app-log-in',
-  templateUrl: './log-in.component.html',
-  styleUrls: ['./log-in.component.scss']
+  selector: 'app-login-dialog',
+  templateUrl: './login-dialog.component.html',
+  styleUrls: ['./login-dialog.component.scss']
 })
-export class LogInComponent {
+export class LoginDialogComponent {
   form!: FormGroup;
   user$!: Observable<User | null>;
   isLoginFormVisible = false;
+  loading = true;
+  private subscription!: Subscription;
+
+  @Output() loginSuccess = new EventEmitter<void>();
   constructor(
+    public dialogRef: MatDialogRef<LoginDialogComponent>,
     // @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private fb: FormBuilder,
     private auth: AuthService,
@@ -23,23 +29,38 @@ export class LogInComponent {
     this.user$ = this.auth.user$;
   }
 
+  // onSignInWithGoogle(): void {
+  //   this.auth.signInWithGoogle().catch(error => console.error(error));
+  //   this.router.navigate(['/']);
+  // }
+
   onSignInWithGoogle(): void {
-    this.auth.signInWithGoogle().catch(error => console.error(error));
+    this.auth.signInWithGoogle().then(() => {
+      this.loginSuccess.emit();
+    }).catch(error => console.error(error));
     this.router.navigate(['/']);
   }
+
   
   
   ngOnInit() {
     this.buildForm();
-    this.user$.subscribe(user => {
+    this.subscription = this.auth.user$.subscribe(user => {
       if (user) {
-        console.log('User is logged in');
-      } else {
-        console.log('User is not logged in');
+        this.dialogRef.close();
+      } else if (!this.auth.isLoggingOut.getValue()) {
+        // Open the dialog only if the user is not logging out
+        // this.dialogRef.open();
       }
     });
   }
+  
 
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
 
 
   buildForm(value: any = null) {

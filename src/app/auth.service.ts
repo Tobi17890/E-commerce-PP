@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { GoogleAuthProvider, getAuth, signInWithPopup, User, signOut, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,10 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   user$!: Observable<User | null>;
+  public loggingOut = new EventEmitter<void>();
+  public isLoggingOut = new BehaviorSubject<boolean>(false);
+  public isLoading = new BehaviorSubject<boolean>(false);
+  
   constructor() {
     const auth = getAuth();
     this.user$ = new Observable((subscriber) => {
@@ -44,4 +48,5 @@ export class AuthService {
     const auth = getAuth();
     await signOut(auth);
   }
+  
 }
