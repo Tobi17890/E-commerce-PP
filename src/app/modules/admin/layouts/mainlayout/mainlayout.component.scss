@@ -1,0 +1,14 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: #F1F3F4;
+    .side-bar {
+        width: 250px;
+        height: 100%;
+    }
+    .main-content {
+        flex: 1;
+        padding: 20px;
+    }
+}

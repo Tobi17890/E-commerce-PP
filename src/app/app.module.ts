@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainlayoutComponent } from './modules/admin/layouts/mainlayout/mainlayout.component';
 import { AuthGuard } from '@angular/fire/auth-guard';
 import { environment } from './environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
@@ -45,7 +44,6 @@ export function playerFactory() {
 @NgModule({
   declarations: [
     AppComponent,
-    MainlayoutComponent,
     HomePageComponent,
     NavBarComponent,
     CategoriesComponent,

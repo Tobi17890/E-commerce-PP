@@ -21,6 +21,7 @@ export class AuthService {
         subscriber.next(user);
       });
     });
+    
   }
 
   async signInWithGoogle(): Promise<void> {
@@ -35,19 +36,24 @@ export class AuthService {
   }
   
 
-  private async updateUserData(user: User): Promise<void> {
+  private async updateUserData(user: any): Promise<void> {
     const db = getFirestore();
     const userRef = doc(db, 'users', user.uid);
-
+  
+    const adminEmails = ['admindash@gmail.com', 'admin@gmail.com'];
+    const role = adminEmails.includes(user?.email) ? 'admin' : 'user'; // Determine user role
+  
     const data = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      role: user.email === 'admindash@gmail.com' || 'admin@gmail.com' ? 'admin' : 'user' 
+      role: role // Assign the determined role
     };
+  
     await setDoc(userRef, data, { merge: true });
   }
+  
   
   async signOut(): Promise<void> {
     const auth = getAuth();
@@ -62,7 +68,10 @@ export class AuthService {
   async signInWithEmailAndPasswordAdmin(email: string, password: string) {
     // this.isLoading.next(true);
     const auth = getAuth();
-    const credential = await signInWithEmailAndPassword(auth, email, password);
+    const credential = await signInWithEmailAndPassword(auth, email, password).then( cred => {
+      localStorage.setItem('admin', JSON.stringify(cred.user));
+      return cred;
+    })
   
     if (credential.user) {
       const db = getFirestore();

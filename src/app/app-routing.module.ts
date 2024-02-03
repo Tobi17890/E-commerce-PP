@@ -20,12 +20,13 @@ import { LogInComponent } from './store/log-in/log-in.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminServiceService } from './adminguard/admin-service.service';
 import { AdminRedirectGuard } from './adminguard/admin-redirect-guard.service';
+import { RedirectAuthenticatedGuard } from './adminguard/unauthenticatedGuard.service';
 
 const routes: Routes = [
   {
     path: '', // localhost:4200
     component: HomePageComponent,
-    // canActivate: [AdminRedirectGuard],
+    canActivate: [RedirectAuthenticatedGuard],
     // data : { authGuardPipe: () => redirectUnauthorizedTo(['/']) },
   },
   {
@@ -69,6 +70,7 @@ const routes: Routes = [
   {
     path: 'login',
     component: AdminLoginComponent,
+    // canActivate: [AdminServiceService],
   },
   {
     path: 'admin',
@@ -81,8 +83,8 @@ const routes: Routes = [
   {
     path: 'user',
     component: MainlayoutComponent,
-    canActivate: [AdminServiceService],
-    data: { expectedRole: 'user' },
+    // canActivate: [AdminServiceService],
+    // data: { expectedRole: 'user' },
     loadChildren: () =>
       import(`./modules/user/user.module`).then((m) => m.UserModule),
   },
@@ -91,6 +93,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  providers: [RedirectAuthenticatedGuard, AdminServiceService],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

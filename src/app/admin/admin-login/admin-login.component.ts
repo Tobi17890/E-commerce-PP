@@ -38,12 +38,17 @@ export class AdminLoginComponent {
   }
 
   ngOnInit() {
+    const admin = JSON.parse(localStorage?.getItem('admin') || '{}');  
+    if (admin) {
+      this.router.navigate(['/admin']);
+    }
     this.buildForm();
     this.user$.subscribe((user) => {
       if (user) {
       } else {
       }
     });
+
   }
 
   buildForm(value: any = null) {

@@ -8,16 +8,24 @@ import { AuthService } from '../auth.service';
 })
 export class AdminServiceService implements CanActivate{
 
-  constructor(public auth: AuthService, public router: Router) {}
-
+  constructor(public auth: AuthService, public router: Router) {    
+  }
   async canActivate(route: ActivatedRouteSnapshot): Promise<boolean> {
-    const expectedRole = route.data['expectedRole'] as string ;
-    const currentRole = await this.auth.getRole(); // Use the getRole method
 
-    if (!this.auth.isAuthenticated() || currentRole !== expectedRole) {
-      this.router.navigate(['login']);
-      return false;
+    const expectedRole = route.data['expectedRole']; 
+    const currentUser = this.auth.getCurrentUser();
+  
+    if (currentUser && this.auth.isAuthenticated()) {
+      return true; 
     }
+  
+    const currentRole = await this.auth.getRole();
+  
+    if (!this.auth.isAuthenticated() || currentRole !== expectedRole) {
+       this.router.navigate(['login']);
+       return false; 
+    }
+  
     return true;
   }
 }
