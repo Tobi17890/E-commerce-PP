@@ -1,4 +1,7 @@
 <div class="container">
+  <!-- <div class="centre">
+    <ng-lottie height="100%" [options]="background"></ng-lottie>
+  </div> -->
     <div class="login-container" *ngIf="isLoginFormVisible; else showGoogleSignIn">
         <form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
           <h1>Welcome Back</h1>
@@ -12,7 +15,7 @@
           <button type="submit">Login</button>
           <div class="bottom-text">
             <p>Don't have an account? <a (click)="unToggleLoginForm()">Sign Up</a></p>
-            <p><a href="#">Forgot password?</a></p>
+            <p><a class="forgot-password">Forgot password?</a></p>
           </div>
         </form>
     </div>

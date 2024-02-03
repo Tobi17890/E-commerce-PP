@@ -1,0 +1,22 @@
+<div class="container">
+    <!-- <div class="centre">
+      <ng-lottie height="100%" [options]="background"></ng-lottie>
+    </div> -->
+      <div class="login-container" >
+          <form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <img class="logo" src="assets/Generated-Images/logo.png" alt="">
+            <h1>Welcome</h1>
+            <p>Please login to dashboard</p>
+            <div class="input-group">
+              <input type="text" id="username" name="username" placeholder="Email" formControlName="email">
+            </div>
+            <div class="input-group">
+              <input type="password" id="password" name="password" placeholder="Password" formControlName="password">
+            </div>
+            <button type="submit">Login</button>
+            <div class="bottom-text">
+              <p><a class="forgot-password">Forgot password?</a></p>
+            </div>
+          </form>
+      </div>
+  </div>

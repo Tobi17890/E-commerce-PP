@@ -74,7 +74,6 @@ export class CategoriesComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
     });
   }
   expandBag() {
@@ -103,7 +102,6 @@ export class CategoriesComponent {
   }
 
   onLogout() {
-    console.log('logout');
     this.auth.isLoading.next(true);
     this.auth.isLoggingOut.next(true);
     this.auth.signOut().then(() => {

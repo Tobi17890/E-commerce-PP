@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { LoginDialogComponent } from './store/login-dialog/login-dialog.component';
 import { AnimationOptions } from 'ngx-lottie';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,19 +19,11 @@ export class AppComponent {
   options: AnimationOptions = {
     path: 'assets/animation/loading.json',
   };
-  constructor(private dialog: MatDialog, private auth: AuthService) {
-    // this.subscription = this.auth.user$.subscribe((user) => {
-    //   if (user) {
-    //     setTimeout(() => {
-    //       this.loading = false;
-    //     }, 500);
-    //   } else {
-    //     setTimeout(() => {
-    //       this.loading = false;
-    //     }, 500);
-    //   }
-    // });
-
+  constructor(
+    private dialog: MatDialog,
+    private auth: AuthService,
+    private router: Router
+  ) {
     this.subscription = this.auth.user$.subscribe((user) => {
       if (user) {
         setTimeout(() => {
@@ -49,9 +42,9 @@ export class AppComponent {
       }, 2000);
     });
     this.auth.isLoading.subscribe((isLoading) => {
-        if (isLoading) {
-          this.loading = true;
-        }
+      if (isLoading) {
+        this.loading = true;
+      }
     });
     // this.auth.isLoggingOut.subscribe((isLoggingOut) => {
     //   if (isLoggingOut) {
@@ -80,7 +73,12 @@ export class AppComponent {
   ngOnInit() {
     setTimeout(() => {
       this.auth.user$.subscribe((user) => {
-        if (!user && !this.auth.isLoggingOut.getValue()) {
+        if (
+          this.router.url !== '/admin' &&
+          !user &&
+          !this.auth.isLoggingOut.getValue() &&
+          this.router.url !== '/login'
+        ) {
           const dialogRef = this.dialog.open(LoginDialogComponent);
           dialogRef.componentInstance.loginSuccess.subscribe(() => {
             this.loading = true;

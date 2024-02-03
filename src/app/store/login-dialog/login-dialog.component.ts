@@ -71,14 +71,12 @@ export class LoginDialogComponent {
   }
 
   onSubmit() {
-    console.log(this.form.value);
     this.form.reset();
   }
 
   async onSignOut(): Promise<void> {
     try {
       await this.auth.signOut();
-      console.log('User signed out');
     } catch (error) {
       console.error('Error signing out', error);
     }

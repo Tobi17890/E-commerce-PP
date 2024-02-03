@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import {  query, getDocs, getDoc, doc } from 'firebase/firestore';
+import { query, getDocs, getDoc, doc } from 'firebase/firestore';
 import { DataService } from '../store/shared/services/data.service';
 import { pushToArray } from '../store/shared/services/mapping.service';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserStoreService {
-
-  constructor(
-    private ds: DataService,
-  ) {}
+  constructor(private ds: DataService, private http: HttpClient) {}
 
   // async getUser() {
   //   const queryRef = query(this.ds.userRef());
@@ -20,14 +19,21 @@ export class UserStoreService {
   async getUser(uid: string) {
     const docRef = doc(this.ds.userRef(), uid);
     const docSnap = await getDoc(docRef);
-  
+
     if (docSnap.exists()) {
       return docSnap.data();
     } else {
-      console.log("No such document!");
     }
     return null;
   }
-  
 
+  getCountries() {
+    return this.http.get('https://restcountries.com/v3.1/all').pipe(
+      map((data: any) => {
+        return data
+          .sort((a: any, b: any) => b.population - a.population)
+          .slice(0, 10);
+      })
+    );
+  }
 }

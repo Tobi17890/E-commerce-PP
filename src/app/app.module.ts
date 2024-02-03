@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainlayoutComponent } from './Layouts/mainlayout/mainlayout.component';
+import { MainlayoutComponent } from './modules/admin/layouts/mainlayout/mainlayout.component';
 import { AuthGuard } from '@angular/fire/auth-guard';
 import { environment } from './environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
@@ -33,6 +33,9 @@ import { CheckoutComponent } from './mens/checkout/checkout.component';
 import { LoginDialogComponent } from './store/login-dialog/login-dialog.component';
 import player from 'lottie-web';
 import { LottieModule } from 'ngx-lottie';
+import { HttpClientModule } from '@angular/common/http';
+import { SearchDialogComponent } from './store/search-dialog/search-dialog.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 // import { UserStore } from './store/log-in/store';
 
 export function playerFactory() {
@@ -60,6 +63,8 @@ export function playerFactory() {
     CartComponent,
     CheckoutComponent,
     LoginDialogComponent,
+    SearchDialogComponent,
+    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +79,7 @@ export function playerFactory() {
     LottieModule.forRoot({ player: playerFactory }),
     SharedModule,
     MaterialsModule,
-    
+    HttpClientModule
   ],
   providers: [AuthGuard],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

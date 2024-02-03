@@ -7,7 +7,7 @@
       <div class="logo" [routerLink]="['/']">Outterfithub</div>
     </div>
     <div class="icons">
-      <div class="icon-item">
+      <div class="icon-item" (click)="openSearchDialog()">
         <ion-icon name="search-outline"></ion-icon>
       </div>
       <div class="icon-item" *ngIf="user$ | async">
