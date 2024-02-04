@@ -56,14 +56,29 @@ export class AuthService {
   
   
   async signOut(): Promise<void> {
+    this.isLoggingOut.next(true);
     const auth = getAuth();
     await signOut(auth);
+    this.isLoggingOut.next(false);
+    this.loggingOut.emit();
   }
+  
 
-  getCurrentUser(): User | null {
+  async getCurrentUser(): Promise<any> {
     const auth = getAuth();
-    return auth.currentUser;
+    const user = auth.currentUser;
+    if (user) {
+      const db = getFirestore();
+      const userRef = doc(db, 'users', user.uid);
+      const userDoc = await getDoc(userRef);
+      if (userDoc.exists()) {
+        return userDoc.data();
+      }
+    }
+    return null;
   }
+  
+  
 
   async signInWithEmailAndPasswordAdmin(email: string, password: string) {
     // this.isLoading.next(true);
@@ -110,16 +125,17 @@ export class AuthService {
       const db = getFirestore();
       const userRef = doc(db, 'users', user.uid);
       const userDoc = await getDoc(userRef);
-      console.log(userDoc.data(), 'hi');
-      
       if (userDoc.exists()) {
-        const role = userDoc.data()['role'];
-        console.log();
-        
         return userDoc.data()['role'];
       }
     }
     return null;
   }
+
+  async isAdmin(): Promise<boolean> {
+    const role = await this.getRole();
+    return role === 'admin';
+  }
+  
   
 }

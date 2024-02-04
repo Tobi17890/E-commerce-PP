@@ -1,1 +1,25 @@
-<p>header works!</p>
+<header>
+    <div class="logo">Facebook</div>
+    <nav>
+      <ul>
+        <li>
+          <a href="#"><ion-icon name="grid-outline"></ion-icon></a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="notifications-outline"></ion-icon></a>
+        </li>
+        <li class="account" #account (click)="onClickAccount()">
+          <a><ion-icon name="person-circle-outline"></ion-icon></a>
+          <div class="account-dropdown" #dropdown>
+            <p>User Name</p>
+            <p>Email@example.com</p>
+            <a class="logout" (click)="signOut()">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  

@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/auth.service';
 @Component({
   selector: 'app-admin-login',
   templateUrl: './admin-login.component.html',
-  styleUrls: ['./admin-login.component.scss']
+  styleUrls: ['./admin-login.component.scss'],
 })
 export class AdminLoginComponent {
   form!: FormGroup;
@@ -20,16 +20,15 @@ export class AdminLoginComponent {
     path: 'assets/animation/background.json',
   };
 
-
   constructor(
     // @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private fb: FormBuilder,
     private auth: AuthService,
     private router: Router
   ) {
-    this.user$ = this.auth.user$;    
+    this.user$ = this.auth.user$;
   }
-  
+
   onSignInWithGoogle(): void {
     this.auth
       .signInWithGoogle()
@@ -38,7 +37,7 @@ export class AdminLoginComponent {
   }
 
   ngOnInit() {
-    const admin = JSON.parse(localStorage?.getItem('admin') || '{}');  
+    const admin = JSON.parse(localStorage?.getItem('admin') || '{}');
     if (admin) {
       this.router.navigate(['/admin']);
     }
@@ -48,7 +47,6 @@ export class AdminLoginComponent {
       } else {
       }
     });
-
   }
 
   buildForm(value: any = null) {
@@ -67,18 +65,25 @@ export class AdminLoginComponent {
   onSubmit() {
     if (this.form.valid) {
       const { email, password } = this.form.value;
-
+  
       this.auth
         .signInWithEmailAndPasswordAdmin(email, password)
-        .then((result) => {
-          if (result.user.email === 'admindash@gmail.com' || 'admin@gmail.com') {
+        .then(async (result) => {
+          const currentUser = await this.auth.getCurrentUser();
+          console.log(currentUser, 'ji');
+          
+          if (currentUser.role === 'admin') {
             this.router.navigate(['/admin']);
           } else {
+            // Handle non-admin users
           }
         })
-        .catch((error) => {});
+        .catch((error) => {
+          // Handle login error
+        });
     }
   }
+  
 
   async onSignOut(): Promise<void> {
     try {

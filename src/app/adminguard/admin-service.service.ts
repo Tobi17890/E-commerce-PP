@@ -14,13 +14,14 @@ export class AdminServiceService implements CanActivate{
 
     const expectedRole = route.data['expectedRole']; 
     const currentUser = this.auth.getCurrentUser();
+    console.log(currentUser, this.auth.isAuthenticated(), 'hi');
+    
   
-    if (currentUser && this.auth.isAuthenticated()) {
+    if (await currentUser && this.auth.isAuthenticated()) {
       return true; 
     }
   
     const currentRole = await this.auth.getRole();
-  
     if (!this.auth.isAuthenticated() || currentRole !== expectedRole) {
        this.router.navigate(['login']);
        return false; 
