@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { User } from 'firebase/auth';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/auth.service';
+import { AdminData, AuthService } from 'src/app/auth.service';
 import { UserStoreService } from 'src/app/shared/user-store.service';
 import { LogInComponent } from 'src/app/store/log-in/log-in.component';
 import { LoginDialogComponent } from 'src/app/store/login-dialog/login-dialog.component';
@@ -15,7 +15,7 @@ import { SearchDialogComponent } from 'src/app/store/search-dialog/search-dialog
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent {
-  user$!: Observable<User | null>;
+  user$!: Observable<AdminData | null>;
   user: any;
   loading = true;
   heartIcon = false;
@@ -33,9 +33,7 @@ export class NavBarComponent {
   ) {
     this.user$ = this.auth.user$;
     this.user$.subscribe((user) => {
-      if (user) {
-        console.log('user', user);
-        
+      if (user) {        
         const uid = user.uid;
         this.userStore.getUser(uid).then((res) => {
           this.user = res;
@@ -44,6 +42,20 @@ export class NavBarComponent {
         });
       }
     });
+    // this.auth.user$.subscribe((user) => {
+    //   console.log(user, 'user');
+      
+    //   if (user) {        
+    //     const uid = user.uid;
+    //     this.userStore.getUser(uid).then((res) => {
+    //       console.log(res, 'res');
+          
+    //       this.user = res;
+    //       // You can access user properties here and display them in the nav-bar
+    //     });
+    //   }
+    // });
+
   }
 
   ngOnInit() {

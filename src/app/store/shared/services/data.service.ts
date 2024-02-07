@@ -160,4 +160,8 @@ export class DataService {
   userRef() {
     return collection(this.db, `users`);
   }
+
+  adminRef() {
+    return collection(this.db, `admin`);
+  }
 }

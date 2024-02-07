@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { User } from 'firebase/auth';
 import { Observable, Subscription } from 'rxjs';
-import { AuthService } from 'src/app/auth.service';
+import { AdminData, AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-login-dialog',
@@ -13,7 +13,7 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class LoginDialogComponent {
   form!: FormGroup;
-  user$!: Observable<User | null>;
+  user$!: Observable<AdminData | null>;
   isLoginFormVisible = false;
   loading = true;
   private subscription!: Subscription;
@@ -26,7 +26,7 @@ export class LoginDialogComponent {
     private auth: AuthService,
     private router : Router
   ) {
-    this.user$ = this.auth.user$;
+    // this.user$ = this.auth.user$;
   }
 
   // onSignInWithGoogle(): void {

@@ -6,9 +6,12 @@ import { MainlayoutComponent } from './layouts/mainlayout/mainlayout.component';
 const routes: Routes = [
   {
     path: '',
-    component: MainlayoutComponent,
-  }
+    component: DashboardComponent,
+  },
+  // other child routes...
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

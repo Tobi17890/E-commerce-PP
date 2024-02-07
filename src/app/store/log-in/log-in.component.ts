@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 import { User } from 'firebase/auth';
 import { AnimationOptions } from 'ngx-lottie';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/auth.service';
+import { AdminData, AuthService } from 'src/app/auth.service';
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
@@ -18,7 +18,7 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class LogInComponent {
   form!: FormGroup;
-  user$!: Observable<User | null>;
+  user$!: Observable<AdminData | null>;
   isLoginFormVisible = false;
 
   background: AnimationOptions = {

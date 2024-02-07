@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { User } from 'firebase/auth';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/auth.service';
+import { AdminData, AuthService } from 'src/app/auth.service';
 import { UserStoreService } from 'src/app/shared/user-store.service';
 import { LogInComponent } from 'src/app/store/log-in/log-in.component';
 
@@ -22,7 +22,7 @@ export class CategoriesComponent {
   closeClicked = false;
   mouseInBag = false;
   loading = true;
-  user$!: Observable<User | null>;
+  user$!: Observable<AdminData | null>;
   user: any;
 
   constructor( 

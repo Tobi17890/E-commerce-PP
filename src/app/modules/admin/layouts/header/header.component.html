@@ -1,25 +1,36 @@
 <header>
-    <div class="logo">Facebook</div>
-    <nav>
-      <ul>
-        <li>
-          <a href="#"><ion-icon name="grid-outline"></ion-icon></a>
-        </li>
-        <li>
-          <a href="#"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></a>
-        </li>
-        <li>
-          <a href="#"><ion-icon name="notifications-outline"></ion-icon></a>
-        </li>
-        <li class="account" #account (click)="onClickAccount()">
-          <a><ion-icon name="person-circle-outline"></ion-icon></a>
-          <div class="account-dropdown" #dropdown>
-            <p>User Name</p>
-            <p>Email@example.com</p>
-            <a class="logout" (click)="signOut()">Logout</a>
+  <div class="logo"></div>
+  <nav>
+    <ul>
+      <li>
+        <a href="#"><ion-icon name="grid-outline"></ion-icon></a>
+      </li>
+      <li>
+        <a href="#"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></a>
+      </li>
+      <li>
+        <a href="#"><ion-icon name="notifications-outline"></ion-icon></a>
+      </li>
+      <li class="account" #account (click)="onClickAccount()">
+           <img
+              src="assets/Generated-Images/profilePassportHolder.jpg"
+              alt="Profile Picture"
+              class="profile"
+            />
+        <div class="account-dropdown" #dropdown>
+          <div class="account-info">
+            <img
+              src="assets/Generated-Images/profilePassportHolder.jpg"
+              alt="Profile Picture"
+              class="profile-picture"
+            />
+            <p class="username">{{admin?.displayName}}</p>
+            <p class="email">{{admin?.email}}</p>
           </div>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  
+          <hr />
+          <a class="logout" (click)="signOut()">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>

@@ -24,7 +24,7 @@ export class AppComponent {
     private auth: AuthService,
     private router: Router
   ) {
-    this.subscription = this.auth.user$.subscribe((user) => {
+    this.subscription = this.auth.user$?.subscribe((user) => {
       if (user) {
         setTimeout(() => {
           this.loading = false;

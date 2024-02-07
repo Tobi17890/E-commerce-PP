@@ -1,6 +1,8 @@
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/auth.service';
+import { Observable } from 'rxjs';
+import { AdminData, AuthService } from 'src/app/auth.service';
+import { UserStoreService } from 'src/app/shared/user-store.service';
 
 @Component({
   selector: 'app-header',
@@ -10,11 +12,15 @@ import { AuthService } from 'src/app/auth.service';
 export class HeaderComponent {
   @ViewChild('dropdown') dropdown!: ElementRef;
   @ViewChild('account') account!: ElementRef;
+
+  admin$! : Observable<AdminData | null>;
+  admin: any;
   listenerFn!: () => void;
   constructor(
     private renderer: Renderer2,
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private userStore: UserStoreService
   ) {}
 
   ngOnInit(): void {
@@ -34,6 +40,18 @@ export class HeaderComponent {
         }
       }
     );
+    this.admin$ = this.auth.user$;
+    this.admin$?.subscribe((admin) => {
+      if (admin) {
+        const uid = admin.uid;
+        this.userStore.getAdmin(uid).then((res) => {
+          this.admin = res;
+          if (this.admin.role !== 'admin') {
+            this.router.navigate(['/']); 
+          }
+        });
+      }
+    });
   }
 
   ngOnDestroy(): void {

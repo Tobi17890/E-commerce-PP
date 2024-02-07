@@ -26,7 +26,18 @@ export class AdminLoginComponent {
     private auth: AuthService,
     private router: Router
   ) {
-    this.user$ = this.auth.user$;
+    this.auth.admin$?.subscribe((admin) => {
+      if (admin) {
+        // Handle admin authentication
+        if (admin.role === 'admin') {
+          this.router.navigate(['/admin']);
+        } else {
+          // Handle non-admin users
+        }
+      } else {
+        // Handle case when no admin is authenticated
+      }
+    });
   }
 
   onSignInWithGoogle(): void {
@@ -37,14 +48,28 @@ export class AdminLoginComponent {
   }
 
   ngOnInit() {
-    const admin = JSON.parse(localStorage?.getItem('admin') || '{}');
-    if (admin) {
-      this.router.navigate(['/admin']);
-    }
+    // const admin = JSON.parse(localStorage?.getItem('admin') || '{}');
+    // if (admin) {
+    //   this.router.navigate(['/admin']);
+    // }
+    // this.buildForm();
+    // this.user$.subscribe((user) => {
+    //   if (user) {
+    //   } else {
+    //   }
+    // });
+
     this.buildForm();
-    this.user$.subscribe((user) => {
-      if (user) {
+    this.auth.admin$?.subscribe((admin) => {
+      if (admin) {
+        // Handle admin authentication
+        if (admin.role === 'admin') {
+          this.router.navigate(['/admin']);
+        } else {
+          // Handle non-admin users
+        }
       } else {
+        // Handle case when no admin is authenticated
       }
     });
   }
@@ -62,28 +87,46 @@ export class AdminLoginComponent {
     });
   }
 
+  // onSubmit() {
+  //   if (this.form.valid) {
+  //     const { email, password } = this.form.value;
+
+  //     this.auth
+  //       .signInWithEmailAndPasswordAdmin(email, password)
+  //       .then(async (result) => {
+  //         const currentUser = await this.auth.getCurrentUser();
+  //         console.log(currentUser, 'ji');
+
+  //         if (currentUser.role === 'admin') {
+  //           this.router.navigate(['/admin']);
+  //         } else {
+  //           // Handle non-admin users
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         // Handle login error
+  //       });
+  //   }
+  // }
+
   onSubmit() {
     if (this.form.valid) {
       const { email, password } = this.form.value;
-  
+
       this.auth
         .signInWithEmailAndPasswordAdmin(email, password)
-        .then(async (result) => {
-          const currentUser = await this.auth.getCurrentUser();
-          console.log(currentUser, 'ji');
-          
-          if (currentUser.role === 'admin') {
+        .then((result) => {
+          if (
+            result.user.email === 'admindash@gmail.com' ||
+            result.user.email ===  'admin@gmail.com'
+          ) {
             this.router.navigate(['/admin']);
           } else {
-            // Handle non-admin users
           }
         })
-        .catch((error) => {
-          // Handle login error
-        });
+        .catch((error) => {});
     }
   }
-  
 
   async onSignOut(): Promise<void> {
     try {
