@@ -4,8 +4,9 @@
     display: flex;
     background-color: #F1F3F4;
     .side-bar {
-        width: 250px;
+        width: 260px;
         height: 100%;
+        padding: 8px;
     }
     .main-content {
         flex: 1;

@@ -21,6 +21,7 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminServiceService } from './adminguard/admin-service.service';
 import { AdminRedirectGuard } from './adminguard/admin-redirect-guard.service';
 import { RedirectAuthenticatedGuard } from './adminguard/unauthenticatedGuard.service';
+import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
 
 const routes: Routes = [
   {
@@ -74,7 +75,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: MainlayoutComponent,
+    component: AdminLayoutComponent,
     canActivate: [AdminServiceService],
     data: { expectedRole: 'admin' },
     loadChildren: () =>

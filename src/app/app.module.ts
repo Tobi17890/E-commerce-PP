@@ -35,6 +35,7 @@ import { LottieModule } from 'ngx-lottie';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchDialogComponent } from './store/search-dialog/search-dialog.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
 // import { UserStore } from './store/log-in/store';
 
 export function playerFactory() {
@@ -63,6 +64,7 @@ export function playerFactory() {
     LoginDialogComponent,
     SearchDialogComponent,
     AdminLoginComponent,
+    AdminLayoutComponent,
   ],
   imports: [
     BrowserModule,

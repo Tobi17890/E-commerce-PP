@@ -6,6 +6,9 @@ import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
 import { MainlayoutComponent } from './layouts/mainlayout/mainlayout.component';
+import { MainRoutePageComponent } from './main-route-page/main-route-page.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { ProductListingComponent } from './product-listing/product-listing.component';
 
 
 @NgModule({
@@ -13,7 +16,10 @@ import { MainlayoutComponent } from './layouts/mainlayout/mainlayout.component';
     DashboardComponent,
     HeaderComponent,
     SidebarComponent,
-    MainlayoutComponent
+    MainlayoutComponent,
+    MainRoutePageComponent,
+    AddProductComponent,
+    ProductListingComponent
   ],
   imports: [
     CommonModule,
