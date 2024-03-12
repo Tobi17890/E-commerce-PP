@@ -4,12 +4,20 @@
     display: flex;
     background-color: #F1F3F4;
     .side-bar {
-        width: 260px;
+        width: 285px;
         height: 100%;
         padding: 8px;
     }
     .main-content {
         flex: 1;
         padding: 8px;
+        .content {
+            overflow-y: scroll;
+            width: 100%;
+            height: calc(100vh - 80px);
+            position: relative;
+            z-index: 1;
+            border-radius: 4px;
+        }
     }
 }

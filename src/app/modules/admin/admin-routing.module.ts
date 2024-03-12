@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './layouts/dashboard/dashboard.component';
-import { MainRoutePageComponent } from './main-route-page/main-route-page.component';
 import { MainlayoutComponent } from './layouts/mainlayout/mainlayout.component';
 import { ProductListingComponent } from './product-listing/product-listing.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
+import { CategoryListingComponent } from './category-listing/category-listing.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,14 @@ const routes: Routes = [
       {
         path: 'products/adding',
         component: AddProductComponent,
+      },
+      {
+        path: 'products/category',
+        component: CategoryListingComponent,
+      },
+      {
+        path: 'products/add-category',
+        component: AddCategoryComponent,
       }
     ]
   },

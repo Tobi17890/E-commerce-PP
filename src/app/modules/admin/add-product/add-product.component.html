@@ -1,1 +1,127 @@
-<p>add-product works!</p>
+<div class="container">
+    <div class="header">
+        <h2 class="header-title">Add Product</h2>
+        <p class="header-para">Create new product</p>
+    </div>
+    <div class="form">
+        <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+            <div class="grid-four-rows">
+                <div class="row">
+                    <label for="name">Product Name</label>
+                    <input type="text" formControlName="productName" id="name" class="form-control">
+                </div>
+                <div class="row">
+                    <label for="catgory">Choose Catgory</label>
+                    <div class="autoComplete">
+                        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{option.name}}
+                          </mat-option>
+                        </mat-autocomplete>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="subCategory">Sub Category</label>
+                    <div class="autoComplete">
+                        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="category">
+                        <mat-autocomplete #category="matAutocomplete" [displayWith]="displayFnCategory">
+                          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{option.category}}
+                          </mat-option>
+                        </mat-autocomplete>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="brand">Brand</label>
+                    <div class="autoComplete">
+                        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="brand">
+                        <mat-autocomplete #brand="matAutocomplete" [displayWith]="displayFnBrand">
+                          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{option.brand}}
+                          </mat-option>
+                        </mat-autocomplete>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="unit">Choose Unit</label>
+                    <div class="autoComplete">
+                        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="unit">
+                        <mat-autocomplete #unit="matAutocomplete" [displayWith]="displayFnUnit">
+                          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{option.unit}}
+                          </mat-option>
+                        </mat-autocomplete>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="SKU"> SKU</label>
+                    <input type="text" formControlName="productSKU" id="SKU" class="form-control">
+                </div>
+                <div class="row">
+                    <label for="minimumQty"> Minimum Qty</label>
+                    <input type="text" formControlName="productMinimumQty" id="minimumQty" class="form-control">
+                </div>
+                <div class="row">
+                    <label for="quanity">Quantity</label>
+                    <input type="text" formControlName="productQuantity" id="quanity" class="form-control">
+                </div>
+            </div>
+            <div class="grid-one-row">
+                <div class="row">
+                    <label for="description">Description</label>
+                    <textarea formControlName="productDescription" id="description" class="form-control" cols="30" rows="8" style="resize: none;"></textarea>
+                </div>
+            </div>
+            <div class="grid-four-rows">
+                <div class="row">
+                    <label for="price">Price</label>
+                    <input type="text" formControlName="productPrice" id="price" class="form-control">
+                </div>
+                <div class="row">
+                    <label for="colors">Colors</label>
+                    <div class="autoComplete">
+                        <input type="text" matInput [formControl]="colorControl" [matAutocomplete]="colors">
+                        <mat-autocomplete #colors="matAutocomplete" [displayWith]="displayFnColor">
+                          <mat-option *ngFor="let option of filteredColors | async" [value]="option">
+                            {{option.name}}
+                          </mat-option>
+                        </mat-autocomplete>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="tax">Tax</label>
+                    <input type="text" formControlName="productTax" id="tax" class="form-control">
+                </div>
+                <div class="row">
+                    <label for="status">Status</label>
+                    <div class="autoComplete">
+                        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="status">
+                        <mat-autocomplete #status="matAutocomplete" [displayWith]="displayFnStatus">
+                          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{option.status}}
+                          </mat-option>
+                        </mat-autocomplete>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-one-drag-drop-six-images">
+                <div class="label-images">
+                    <label for="images">Images</label>
+                </div>
+                <div class="drag-drop">
+                    <div class="drag-drop-content-text">
+                        <ion-icon name="cloud-upload-outline" class="cloud"></ion-icon>
+                        <!-- <input type="file" class="input-visible" multiple> -->
+                        <p>Drag & Drop</p>
+                        <p>Images Here</p>
+                    </div>
+                </div>
+            </div>
+            <div class="submit-and-cancel">
+                <button type="submit" class="submit">Submit</button>
+                <button type="button" class="cancel">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -9,6 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog'
 import {MatRadioModule} from '@angular/material/radio';
 import { UserStore } from '../log-in/store';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 export class FormFieldOverviewExample {}
 
@@ -21,7 +22,8 @@ export class FormFieldOverviewExample {}
     ReactiveFormsModule,
     MatDialogModule,
     MatRadioModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatAutocompleteModule,
   ],
   declarations: [],
   providers: [UserStore],

@@ -9,6 +9,11 @@ import { MainlayoutComponent } from './layouts/mainlayout/mainlayout.component';
 import { MainRoutePageComponent } from './main-route-page/main-route-page.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductListingComponent } from './product-listing/product-listing.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
+import { CategoryListingComponent } from './category-listing/category-listing.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialsModule } from 'src/app/store/materials/materials.module';
+// import { QuillModule } from 'ngx-quill';
 
 
 @NgModule({
@@ -19,11 +24,17 @@ import { ProductListingComponent } from './product-listing/product-listing.compo
     MainlayoutComponent,
     MainRoutePageComponent,
     AddProductComponent,
-    ProductListingComponent
+    ProductListingComponent,
+    AddCategoryComponent,
+    CategoryListingComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialsModule,
+    // QuillModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
