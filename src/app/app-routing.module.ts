@@ -57,7 +57,7 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'reviews',
+    path: 'reviews/:id',
     component: ReviewBeforeAddingComponent,
   },
   {

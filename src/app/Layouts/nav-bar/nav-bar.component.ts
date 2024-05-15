@@ -58,10 +58,6 @@ export class NavBarComponent {
 
   }
 
-  ngOnInit() {
-    this.userStore.getCountries().subscribe((res) => {
-    });
-  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(LoginDialogComponent, {

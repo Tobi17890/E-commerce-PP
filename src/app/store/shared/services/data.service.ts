@@ -164,4 +164,8 @@ export class DataService {
   adminRef() {
     return collection(this.db, `admin`);
   }
+
+  productRef() {
+    return collection(this.db, `products`);
+  }
 }

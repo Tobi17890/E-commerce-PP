@@ -1,38 +1,36 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { COLOR_OBJECT } from 'src/app/store/static-data';
+import { ActivatedRoute } from '@angular/router';
+import { doc, getDoc } from 'firebase/firestore';
+import { UserStoreService } from 'src/app/shared/user-store.service';
+import { DataService } from 'src/app/store/shared/services/data.service';
 
 @Component({
   selector: 'app-review-before-adding',
   templateUrl: './review-before-adding.component.html',
-  styleUrls: ['./review-before-adding.component.scss']
+  styleUrls: ['./review-before-adding.component.scss'],
 })
 export class ReviewBeforeAddingComponent {
-  @ViewChild('box_container') box_container!: ElementRef;
-  @ViewChild('category') category!: ElementRef;
-  @ViewChild('size') size!: ElementRef;
-  @ViewChild('color') colorBox!: ElementRef;
-  @ViewChild('boxs') boxs_container!: ElementRef;
-  colorObject = COLOR_OBJECT
-  @HostListener('window:scroll', ['$event'])
-  onWindowScroll() {
-    this.checkScroll();
+  productId: string = '';
+  productData: any; // Variable to hold the product data
+  
+  constructor(private route: ActivatedRoute, private db: DataService) {} // Inject your data service
+
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.productId = params['id'];
+      this.fetchProductDetails(this.productId);
+    });
   }
-  myFunction(dropdown: HTMLDivElement) {
-    dropdown.classList.toggle('show');
-  }
-  checkScroll() {
-    const rect = this.box_container.nativeElement.getBoundingClientRect();
-    if (rect.top <= 110) {
-      const boxs = this.boxs_container.nativeElement;
-      boxs.style.justifyContent = 'flex-start';
-      boxs.style.gap = '20px';
-      this.category.nativeElement.style.display = 'none';
-      this.size.nativeElement.style.display = 'none';
-      this.colorBox.nativeElement.style.display = 'none';
+
+  async fetchProductDetails(id: string) {
+    const docRef = doc(this.db.productRef(), id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      this.productData = docSnap.data(); // Assign the fetched data to productData
+      console.log(this.productData)
     } else {
-      this.category.nativeElement.style.display = 'block';
-      this.size.nativeElement.style.display = 'block';
-      this.colorBox.nativeElement.style.display = 'block';
+      console.log("No such document!");
     }
   }
 }

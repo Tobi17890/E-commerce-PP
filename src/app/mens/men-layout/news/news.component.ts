@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { UserStoreService } from 'src/app/shared/user-store.service';
 import { COLOR_OBJECT } from 'src/app/store/static-data';
 
 @Component({
@@ -13,6 +14,14 @@ export class NewsComponent implements OnInit, AfterViewInit {
   @ViewChild('size') size!: ElementRef;
   @ViewChild('color') colorBox!: ElementRef;
   @ViewChild('boxs') boxs_container!: ElementRef;
+
+  productsList: any = [];
+
+  constructor (private db: UserStoreService) {
+    this.db.getProduct().then((res) => {
+      this.productsList = res;
+    });
+  }
 
   colorObject = COLOR_OBJECT
   color = COLOR_OBJECT?.map((item: any) => item.color)

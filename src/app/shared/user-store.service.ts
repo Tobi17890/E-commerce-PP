@@ -9,7 +9,7 @@ import { map } from 'rxjs';
   providedIn: 'root',
 })
 export class UserStoreService {
-  constructor(private ds: DataService, private http: HttpClient) {}
+  constructor(private ds: DataService) {}
 
   // async getUser() {
   //   const queryRef = query(this.ds.userRef());
@@ -50,15 +50,21 @@ export class UserStoreService {
       return null;
     }
   }
-  
 
-  getCountries() {
-    return this.http.get('https://restcountries.com/v3.1/all').pipe(
-      map((data: any) => {
-        return data
-          .sort((a: any, b: any) => b.population - a.population)
-          .slice(0, 10);
-      })
-    );
+  async getProduct() {
+    const q = query(this.ds.productRef(), where("category", "array-contains", "New"));
+    const querySnapshot = await getDocs(q);
+    return pushToArray(querySnapshot);
   }
+
+  // async fetchProductDetails(id: string) {
+  //   const docRef = doc(this.ds.productRef(), id);
+  //   const docSnap = await getDoc(docRef);
+
+  //   if (docSnap.exists()) {
+  //     console.log("Document data:", docSnap.data());
+  //   } else {
+  //     console.log("No such document!");
+  //   }
+  // }
 }
