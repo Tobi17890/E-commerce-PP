@@ -1,0 +1,53 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <div class="title">
+        <h2>Shopping Bag</h2>
+    </div>
+    <hr>
+    <div class="sub-titles">
+        <p class="product">
+            product
+        </p>
+        <div class="devivery-qty">
+            <p>delivery</p>
+            <p>Qty</p>
+        </div>
+        <div class="price-total">
+            <p>price</p>
+            <p>total</p>
+        </div>
+    </div>
+    <hr>
+    <div class="item-review">
+        <div class="name-product">
+            <div class="img-logo">
+                <img src="{{productData?.productImages[2]?.imageUrl}}" alt="">
+            </div>
+            <div class="description">
+                <p>{{productData?.productName}}</p>
+                <p>item {{productData?.brand}}</p>
+                <p>Color: {{productData?.colors[0].color}}</p>
+                <p>Size: {{productData?.sizes[0]}}</p>
+            </div>
+        </div>
+        <div class="dev-qty">
+                <mat-radio-button value="0">SHIP TO HOME</mat-radio-button>
+            <div class="btn-increased-decreased">
+                <button class="decreased">-</button>
+                <p>1</p>
+                <button class="increased">+</button>
+              </div>
+        </div>
+        <div class="priz-sum">
+            <p> {{productData?.price}} </p>
+            <p> {{productData?.price}} </p>
+        </div>
+    </div>
+    <hr>
+    <div class="checkout">
+        <div class="btn-checkout" [routerLink]="['/checkout', productId]">
+            <button class="btn-check-out">Checkout</button>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

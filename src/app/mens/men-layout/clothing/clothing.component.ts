@@ -5,6 +5,7 @@ import {
   HostListener,
   ViewChild,
 } from '@angular/core';
+import { UserStoreService } from 'src/app/shared/user-store.service';
 import { COLOR_DENIM_OBJECT } from 'src/app/store/static-data';
 
 @Component({
@@ -22,6 +23,9 @@ export class ClothingComponent implements AfterViewInit {
   colorObject = COLOR_DENIM_OBJECT;
   color = COLOR_DENIM_OBJECT?.map((item: any) => item.color);
   isHovering = false;
+  clothingList: any = [];
+
+  constructor(private db: UserStoreService) {}
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
@@ -33,6 +37,10 @@ export class ClothingComponent implements AfterViewInit {
   }
   ngOnInit(): void {
     this.setupOnClickEvent();
+    this.db.getProductClothing().then((res) => {
+      this.clothingList = res;
+      console.log(this.clothingList);
+    });
   }
 
   myFunction(dropdown: HTMLDivElement) {

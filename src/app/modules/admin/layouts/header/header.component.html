@@ -1,0 +1,36 @@
+<header>
+  <div class="logo"></div>
+  <nav>
+    <ul>
+      <li>
+        <a href="#"><ion-icon name="grid-outline"></ion-icon></a>
+      </li>
+      <li>
+        <a href="#"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></a>
+      </li>
+      <li>
+        <a href="#"><ion-icon name="notifications-outline"></ion-icon></a>
+      </li>
+      <li class="account" #account (click)="onClickAccount()">
+           <img
+              src="assets/Generated-Images/profilePassportHolder.jpg"
+              alt="Profile Picture"
+              class="profile"
+            />
+        <div class="account-dropdown" #dropdown>
+          <div class="account-info">
+            <img
+              src="assets/Generated-Images/profilePassportHolder.jpg"
+              alt="Profile Picture"
+              class="profile-picture"
+            />
+            <p class="username">{{admin?.displayName}}</p>
+            <p class="email">{{admin?.email}}</p>
+          </div>
+          <hr />
+          <a class="logout" (click)="signOut()">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>

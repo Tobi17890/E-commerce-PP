@@ -31,7 +31,6 @@ export class FooterComponent {
     }
 
     const docRef = doc(this.db.catogryRef(), docData?.key);
-    console.log(docRef, 'docRef');
     batch.set(docRef, docData);
     batch.commit().then(() => {
       this.email.reset();

@@ -156,4 +156,20 @@ export class DataService {
   catogryRef() {
     return collection(this.db, `categories`);
   }
+
+  userRef() {
+    return collection(this.db, `users`);
+  }
+
+  adminRef() {
+    return collection(this.db, `admin`);
+  }
+
+  productRef() {
+    return collection(this.db, `products`);
+  }
+
+  checkoutRef() {
+    return collection(this.db, `checkout`);
+  }
 }

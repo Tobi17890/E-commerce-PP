@@ -2,11 +2,6 @@
     <!-- title-block -->
     <div class="title-container">
       <h2>CLOTHING</h2>
-      <!-- <p>
-        Find the fit that works for you, with vintage-inspired designs that put
-        quality first. Wanna learn <br />
-        more?
-      </p> -->
     </div>
     <div class="box-container" #box_container>
       <div class="boxs" #boxs>
@@ -82,24 +77,26 @@
     </div>
 
     <div class="grid-four-columns">
-      <div class="column">
-        <div class="img">
-          <img
-            src="https://www.madewell.com/images/NO015_SU3175_m?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
-            alt=""
-          />
-          <div class="img-absolute">
-            <ion-icon name="heart-outline" class="heart"></ion-icon>
+      <div class="column" *ngFor="let cloth of clothingList">
+        <a [routerLink]="['/reviews', cloth.productImages[0].productId]">
+          <div class="img">
+            <img
+              [src]="cloth.productImages[1].imageUrl"
+              alt=""
+            />
+            <div class="img-absolute">
+              <ion-icon name="heart-outline" class="heart"></ion-icon>
+            </div>
+            <img
+              [src]="cloth.productImages[0].imageUrl"
+              alt=""
+              class="absolute"
+            />
+            <div class="quick-shop">
+              <p>Quick Shop</p>
+            </div>
           </div>
-          <img
-            src="https://www.madewell.com/images/NO015_SU3175_d1?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
-            alt=""
-            class="absolute"
-          />
-          <div class="quick-shop">
-            <p>Quick Shop</p>
-          </div>
-        </div>
+        </a>
         <div class="description-price">
           <p class="decription">
             The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
@@ -114,104 +111,8 @@
           ></div>
         </div>
       </div>
-      <div class="column">
-        <div class="img">
-          <img
-            src="https://www.madewell.com/images/NM488_NA6710_m?wid=700&hei=889&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
-            alt=""
-          />
-          <div class="img-absolute">
-            <ion-icon name="heart-outline" class="heart"></ion-icon>
-          </div>
-          <img
-            src="https://www.madewell.com/images/NM488_NA6710_d1?wid=700&hei=889&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
-            alt=""
-            class="absolute"
-          />
-          <div class="quick-shop">
-            <p>Quick Shop</p>
-          </div>
-        </div>
-        <div class="description-price">
-          <p class="decription">
-            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
-          </p>
-          <p class="price">$12.0000</p>
-        </div>
-        <div class="color-container">
-          <div
-            class="color"
-            *ngFor="let color of colorObject"
-            [style.background-color]="color.color"
-          ></div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="img">
-          <img
-            src="https://www.madewell.com/images/NN998_DM7422_ld?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
-            alt=""
-          />
-          <div class="img-absolute">
-            <ion-icon name="heart-outline" class="heart"></ion-icon>
-          </div>
-          <!-- <img
-            src="https://www.madewell.com/images/NG313_NA0229_d1?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
-            alt=""
-            class="absolute"
-          /> -->
-          <div class="quick-shop">
-            <p>Quick Shop</p>
-          </div>
-        </div>
-        <div class="description-price">
-          <p class="decription">
-            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
-          </p>
-          <p class="price">$12.0000</p>
-        </div>
-        <!-- <div class="color-container">
-          <div class="color cambridge active"></div>
-          <div class="color mainshore"></div>
-          <div class="color handlock"></div>
-          <div class="color cedarbrooke"></div>
-        </div> -->
-      </div>
-      <div class="column">
-        <div class="img">
-          <img
-            src="https://www.madewell.com/images/NN925_GR8470_ld?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
-            alt=""
-          />
-          <div class="img-absolute">
-            <ion-icon name="heart-outline" class="heart"></ion-icon>
-          </div>
-          <!-- <img
-            src="https://www.madewell.com/images/NM488_NA6710_d1?wid=480&hei=610&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
-            alt=""
-            class="absolute"
-          /> -->
-          <div class="quick-shop">
-            <p>Quick Shop</p>
-          </div>
-        </div>
-        <div class="description-price">
-          <p class="decription">
-            The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
-          </p>
-          <p class="price">$12.0000</p>
-        </div>
-        <!-- <div class="color-container">
-          <div
-            class="color"
-            *ngFor="let color of colorObject"
-            [style.background-color]="color.color"
-          ></div>
-        </div> -->
-      </div>
-  
     </div>
-    <div class="grid-four-columns">
+    <!-- <div class="grid-four-columns">
       <div class="column">
         <div class="img">
           <img
@@ -728,10 +629,10 @@
           <div class="color cedarbrooke"></div>
         </div>
       </div>
-    </div>
+    </div> -->
   
   
-    <div class="grid-four-columns">
+    <!-- <div class="grid-four-columns">
       <div class="column">
         <div class="img">
           <img
@@ -860,7 +761,7 @@
         </div>
       </div>
   
-    </div>
+    </div> -->
     <div class="btn-container">
       <app-button label="load more"></app-button>
     </div>

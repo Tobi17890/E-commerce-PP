@@ -1,16 +1,16 @@
 <div class="navBar-container">
   <div class="navBar-icons">
     <div class="title">
-      <p [routerLink]="['/']" >Men</p>
+      <p [routerLink]="['/']">Men</p>
     </div>
     <div class="logo">
       <div class="logo" [routerLink]="['/']">Outterfithub</div>
     </div>
     <div class="icons">
-      <div class="icon-item">
+      <div class="icon-item" (click)="openSearchDialog()">
         <ion-icon name="search-outline"></ion-icon>
       </div>
-      <div class="icon-item">
+      <div class="icon-item" *ngIf="user$ | async">
         <ion-icon name="heart-outline"></ion-icon>
       </div>
       <div class="icon-item">
@@ -18,74 +18,79 @@
           <ion-icon name="person-outline"></ion-icon>
         </div>
         <div class="expanding-content">
-          <div class="hover">
+          <div class="hover" *ngIf="user$ | async; else showLogin">
             <div class="hover-title">
-              <p>HI, User </p>
+              <p>HI, {{ user?.displayName }}</p>
             </div>
-            <hr>
+            <hr />
             <div class="hover-content">
               <a href="#">My Details</a>
-              <a href="#">My Orders</a>
-              <a (click)="openDialog()">Sign Out</a>
+              <a (click)="openDialog()">My Orders</a>
+              <a (click)="onLogout()">Sign Out</a>
             </div>
           </div>
         </div>
+        <ng-template #showLogin>
+          <app-log-in></app-log-in>
+        </ng-template>
       </div>
       <div class="icon-item" #iconItem (mouseleave)="onBagLeave()">
         <ion-icon name="bag-outline"></ion-icon>
         <span>0</span>
-        <div class="expanding-content-bag" (mouseenter)="expandBag()" #bag (mouseleave)="onBagLeave()">
+        <div
+          class="expanding-content-bag"
+          (mouseenter)="expandBag()"
+          #bag
+          (mouseleave)="onBagLeave()"
+        >
           <div class="hover">
             <div class="hover-title">
-              <p>Your Bag </p>
+              <p>Your Bag</p>
               <div class="icon" (click)="closeBag()">
-                <ion-icon name="close-outline" ></ion-icon>
+                <ion-icon name="close-outline"></ion-icon>
               </div>
             </div>
-            <hr>
+            <hr />
             <div class="hover-content">
-
               <div class="img">
-                <img src="https://www.madewell.com/images/NO584_NA0229_ld?wid=830&hei=1054&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0" alt="">
+                <img
+                  src="https://www.madewell.com/images/NO584_NA0229_ld?wid=830&hei=1054&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0"
+                  alt=""
+                />
               </div>
 
               <div class="flex-1">
                 <p class="name-product">
-                  The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition
+                  The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed
+                  Edition
                 </p>
-                <p class="color">
-                  Color: Matchstick Wash
-                </p>
+                <p class="color">Color: Matchstick Wash</p>
                 <div class="size">
                   <p>Size: 32/32</p>
                 </div>
                 <div class="quanity">
-                  <p>Quanity: </p>
+                  <p>Quanity:</p>
                   <div class="btn-increased-decreased">
-                    <button>-</button>
+                    <button class="decreased">-</button>
                     <p>1</p>
-                    <button>+</button>
+                    <button class="increased">+</button>
                   </div>
-                  <p class="price">
-                    $128.00
-                  </p>
+                  <p class="price">$128.00</p>
                 </div>
-
               </div>
             </div>
-            <hr>
+            <hr />
             <div class="order-subtotal">
               <p>Order Subtotal:</p>
               <p>$128.00</p>
             </div>
-            <hr>
-            <div class="btn-checkout">
-              <button>Checkout & View Bag</button>
+            <hr />
+            <div class="btn-checkout" routerLink="/cart">
+              <button class="btn-check-out">Checkout & View Bag</button>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>

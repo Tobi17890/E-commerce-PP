@@ -1,91 +1,7 @@
 <app-nav-bar></app-nav-bar>
-<div class="box-container" #box_container>
-    <div class="boxs" #boxs>
-      <div class="box">
-        <div class="dropdown">
-          <div class="inner-box">
-            <button class="dropbtn" (click)="myFunction(showSort)">
-              Sort By: Relevance
-            </button>
-            <ion-icon name="swap-vertical-outline"></ion-icon>
-          </div>
-          <div #showSort class="dropdown-content">
-            <a href="#home">Relevance</a>
-            <a href="#about">Best Sellers</a>
-            <a href="#contact">Price: High - Low</a>
-            <a href="">Price: Low - High</a>
-            <a href="">Newest</a>
-            <a href="">Top Rated</a>
-          </div>
-        </div>
-      </div>
-      <div class="box" #category>
-        <div class="dropdown">
-          <div class="inner-box">
-            <button class="dropbtn" (click)="myFunction(showCategory)">
-              Category
-            </button>
-            <ion-icon name="chevron-down-outline"></ion-icon>
-          </div>
-          <div #showCategory class="dropdown-content">
-            <a href="#home">Shirts</a>
-            <a href="#about">jackets</a>
-            <a href="#contact">Sweaters</a>
-            <a>Pants</a>
-          </div>
-        </div>
-      </div>
-      <div class="box" #size>
-        <div class="dropdown">
-          <div class="inner-box">
-            <button class="dropbtn" (click)="myFunction(showSize)">
-              Size
-            </button>
-            <ion-icon name="swap-vertical-outline"></ion-icon>
-          </div>
-          <div #showSize class="dropdown-content">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-          </div>
-        </div>
-      </div>
-      <div class="box" #color>
-        <button class="dropdown" (click)="myFunction(showColor)">
-          <div class="inner-box">
-            <button class="dropbtn">Color</button>
-            <ion-icon
-              name="chevron-down-outline"
-              (click)="myFunction(showColor)"
-            ></ion-icon>
-          </div>
-          <div #showColor class="dropdown-content">
-            <div class="flex-checkbox" *ngFor="let color of colorObject">
-              <input type="checkbox" />
-              <a>{{ color?.name }}</a>
-            </div>
-          </div>
-        </button>
-      </div>
-      <ion-icon name="options-outline" class="icon"></ion-icon>
-    </div>
-    <div class="result">
-      <p>112 results</p>
-    </div>
-  </div>
 <div class="container-review">
   <div class="grid-two-columns">
-    <div class="styling">
-      <img src="https://www.madewell.com/images/NO584_NA0229_m?wid=1080&hei=1372&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0" alt="">
-      <div class="how-to-style">
-        <p>How to style it</p>
-      </div>
-    </div>
-    <img src="https://www.madewell.com/images/NO584_NA0229_d1?wid=830&hei=1054&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0" alt="">
-    <img src="https://www.madewell.com/images/NO584_NA0229_d2?wid=830&hei=1054&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0" alt="">
-    <img src="https://www.madewell.com/images/NO584_NA0229_d3?wid=830&hei=1054&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0" alt="">
-    <img src="https://www.madewell.com/images/NO584_NA0229_d5?wid=830&hei=1054&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0" alt="">
-    <img src="https://www.madewell.com/images/NO584_NA0229_ld?wid=830&hei=1054&fmt=jpeg&fit=crop&qlt=75,1&resMode=bisharp&op_usm=0.5,1,5,0" alt="">
+    <img *ngFor="let image of productData?.productImages" alt="" [src]="image.imageUrl" style="width: 100%; height: 632px; object-fit: cover;">
   </div>
   <div class="size-container">
     <div class="view">
@@ -93,48 +9,27 @@
       <p> 380 viewed in last 7 days</p>
     </div>
     <div class="description">
-      <p>The 1991 Straight-Leg Jean in Matchstick Wash: Garment-Dyed Edition</p>
+      <p>{{productData?.productName}}</p>
     </div>
     <div class="price">
-      <p>$128.00</p>
+      <p>{{productData?.price}}</p>
       <span>Prices include duties and taxes</span>
     </div>
     <div class="colors">
       <p>Color</p>
       <div class="flex">
-        <div class="circle-color">
+        <div class="circle-color" *ngFor="let color of productData?.colors" [style.background-color]="color.hex">
         </div>
-        <div class="circle-color">
-        </div>
-        <div class="circle-color">
-        </div>
-        <div class="circle-color">
-        </div>
-            </div>
+      </div>
       </div>
     <div class="size">
-      <div class="box-size">
-        <p>X SMALL</p>
-      </div>
-      <div class="box-size">
-        <p>SMALL</p>
-      </div>
-      <div class="box-size">
-        <p>MEDIUM</p>
-      </div>
-      <div class="box-size">
-        <p>LARGE</p>
-      </div>
-      <div class="box-size">
-        <p>X LARGE</p>
-      </div>
-      <div class="box-size">
-        <p>XX LARGE</p>
+      <div class="box-size" *ngFor="let size of productData.sizes">
+        <p>{{size}}</p>
       </div>
     </div>
 
     <div class="adding-container">
-      <div class="btn-add-card">
+      <div class="btn-add-card" [routerLink]="['/cart', productId]">
         <button>Add to bag</button>
       </div>
       <div class="add-to-fav">
@@ -148,28 +43,9 @@
     <div class="product-details">
       <div class="details">
         <p>Product Details</p>
+
+        <p>{{productData.description}}</p>
       </div>
-      <!-- <div class="description">
-        <p>Our favorite lean and sexy jeans in best-of-the-best denim, in this case a soft-to-the-touch blend woven with TENCEL™ lyocell that makes them feel like stealth yoga pants. The sky-high 10" rise has a supersleek effect, thanks to a tricky detail—Magic Pockets in front that offer an extra layer of holds-you-in sorcery for the slimmest, smoothest look yet (plus, a touch of added stretch ensures you're still totally comfortable). Go ahead and tuck in your shirt—you've got nothing to hide in these jeans. Sit above hip, fitted through hip and thigh, with a slim leg. Front rise: 10"; inseam: 28 1/2"; leg opening for size 25: 9 3/4". Premium 44% cotton/42% TENCEL™ lyocell/13% poly/1% elastane denim from the renowned Orta mill. Machine wash. Import.</p>
-      </div>
-      <div class="fit-details">
-        <p>Fit Details</p>
-      </div>
-      <div class="description">
-        <p>High rise, fitted through hip and thigh, with a slim leg. Front rise: 10"; inseam: 28 1/2"; leg opening for size 25: 9 3/4".</p>
-      </div>
-      <div class="fabric-details">
-        <p>Fabric Details</p>
-      </div>
-      <div class="description">
-        <p>44% cotton/42% TENCEL™ lyocell/13% poly/1% elastane denim from the renowned Orta mill.</p>
-      </div>
-      <div class="care-details">
-        <p>Care Details</p>
-      </div>
-      <div class="description">
-        <p>Machine wash.</p>
-      </div> -->
     </div>
   </div>
   </div>
