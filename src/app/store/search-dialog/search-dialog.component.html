@@ -1,21 +1,68 @@
 <div class="container">
-    <div class="logo-head">
-        <div></div>
-        <div class="logo">Outterfithub</div>
-        <div class="icon" (click)="onClosedialog()">
-            <ion-icon name="close-outline"></ion-icon>
-        </div>
+  <div class="logo-head">
+    <div></div>
+    <div class="logo">Outterfithub</div>
+    <div class="icon" (click)="onClosedialog()">
+      <ion-icon name="close-outline"></ion-icon>
     </div>
-    <div class="search">
-        <p>Search</p>
-    </div>
+  </div>
+  <div class="search">
+    <p>Search</p>
+  </div>
+  <form [formGroup]="searchForm">
     <div class="input-search">
-        <div class="icon-search">
-            <ion-icon name="search-outline"></ion-icon>
-        </div>
-        <input type="text" placeholder="What are you looking for?" />
-        <div class="cancel-logo">
-            <ion-icon name="close-circle-outline"></ion-icon>
-        </div>
+      <div class="icon-search">
+        <ion-icon name="search-outline"></ion-icon>
+      </div>
+      <input
+        type="text"
+        placeholder="What are you looking for?"
+        formControlName="searchTerm"
+      />
+      <div
+        class="cancel-logo"
+        *ngIf="searchForm.get('searchTerm')?.value"
+        (click)="searchForm.get('searchTerm')?.reset()"
+      >
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </div>
     </div>
+  </form>
+
+  <div class="search-results" *ngIf="searchResults.length > 0">
+    <h3>Search Results:</h3>
+    <ul>
+      <li *ngFor="let result of searchResults">
+        <div class="result-item">
+          <img
+            [src]="result.productImages[0]?.imageUrl"
+            alt="{{ result.productName }}"
+            class="result-image"
+          />
+          <div class="result-details">
+            <h4 (click)="navigateToProductReview(result.productImages[0].productId)">{{ result.productName }}</h4>
+            <p>Category: {{ result.category }}</p>
+            <p>Price: {{ result.price }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="item-review" *ngIf="productData">
+      <div class="name-product">
+        <div class="img-logo">
+          <img [src]="productData?.productImages[2]?.imageUrl" alt="" />
+        </div>
+        <div class="description">
+          <p>{{ productData?.productName }}</p>
+          <p>item {{ productData?.brand }}</p>
+          <p>Color: {{ productData?.colors[0].color }}</p>
+          <p>Size: {{ productData?.sizes[0] }}</p>
+        </div>
+      </div>
+      <div class="priz-sum">
+        <p>{{ productData?.price }}</p>
+        <p>{{ productData?.price }}</p>
+      </div>
+    </div>
+  </div>
 </div>

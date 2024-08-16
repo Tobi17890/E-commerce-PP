@@ -21,6 +21,7 @@ import { AdminServiceService } from './adminguard/admin-service.service';
 import { AdminRedirectGuard } from './adminguard/admin-redirect-guard.service';
 import { RedirectAuthenticatedGuard } from './adminguard/unauthenticatedGuard.service';
 import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
+import { PaymentsComponent } from './mens/payments/payments.component';
 
 
 const routes: Routes = [
@@ -68,6 +69,10 @@ const routes: Routes = [
     path: 'login',
     component: AdminLoginComponent,
     // canActivate: [AdminServiceService],
+  },
+  {
+    path: 'payments',
+    component: PaymentsComponent
   },
   {
     path: 'admin',

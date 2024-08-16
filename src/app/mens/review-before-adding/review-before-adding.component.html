@@ -1,30 +1,45 @@
 <app-nav-bar></app-nav-bar>
 <div class="container-review">
   <div class="grid-two-columns">
-    <img *ngFor="let image of productData?.productImages" alt="" [src]="image.imageUrl" style="width: 100%; height: 632px; object-fit: cover;">
+    <img
+      *ngFor="let image of productData?.productImages"
+      alt=""
+      [src]="image.imageUrl"
+      style="width: 100%; height: 632px; object-fit: cover"
+    />
   </div>
   <div class="size-container">
     <div class="view">
       <ion-icon name="flame-outline"></ion-icon>
-      <p> 380 viewed in last 7 days</p>
+      <p>380 viewed in last 7 days</p>
     </div>
     <div class="description">
-      <p>{{productData?.productName}}</p>
+      <p>{{ productData?.productName }}</p>
     </div>
     <div class="price">
-      <p>{{productData?.price}}</p>
+      <p>{{ productData?.price }}</p>
       <span>Prices include duties and taxes</span>
     </div>
     <div class="colors">
       <p>Color</p>
       <div class="flex">
-        <div class="circle-color" *ngFor="let color of productData?.colors" [style.background-color]="color.hex">
-        </div>
+        <div
+          class="circle-color"
+          *ngFor="let color of productData?.colors; let i = index"
+          [style.background-color]="color.hex"
+          [class.active]="isColorSelected(color.color)"
+          (click)="selectColor(color.color); onHandleSwitchColor()"
+        ></div>
       </div>
-      </div>
+    </div>
     <div class="size">
-      <div class="box-size" *ngFor="let size of productData.sizes">
-        <p>{{size}}</p>
+      <div
+        class="box-size"
+        *ngFor="let size of productData.sizes"
+        [class.active]="isSizeSelected(size)"
+        (click)="selectSize(size)"
+      >
+        <p>{{ size }}</p>
       </div>
     </div>
 
@@ -38,15 +53,15 @@
       </div>
     </div>
 
-    <hr>
+    <hr />
 
     <div class="product-details">
       <div class="details">
         <p>Product Details</p>
 
-        <p>{{productData.description}}</p>
+        <p>{{ productData.description }}</p>
       </div>
     </div>
   </div>
-  </div>
+</div>
 <app-footer></app-footer>

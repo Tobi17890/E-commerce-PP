@@ -16,25 +16,25 @@
       padding: 0 0 0 35px;
     }
     .icon {
-        display: flex;
-        gap: 30px;
-        ion-icon {
-            width: 35px;
-            height: 35px;
-            z-index: 1;
-        }
+      display: flex;
+      gap: 30px;
+      ion-icon {
+        width: 35px;
+        height: 35px;
+        z-index: 1;
+      }
     }
     .icon:hover {
-        cursor: pointer;
+      cursor: pointer;
     }
   }
   .search {
     width: 70%;
     margin: auto;
     p {
-        text-transform: uppercase;
-        font-weight: 500;
-        font-size: 18px;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 18px;
     }
   }
   .input-search {
@@ -45,30 +45,136 @@
     justify-content: space-between;
     border-bottom: 1px solid #000000;
     .icon-search {
-        display: flex;
-        gap: 30px;
-        height: 25px;
-        ion-icon {
-            width: 20px;
-            height: 20px;
-            z-index: 1;
-        }
+      display: flex;
+      gap: 30px;
+      height: 25px;
+      ion-icon {
+        width: 20px;
+        height: 20px;
+        z-index: 1;
+      }
     }
     input {
-        width: 100%;
-        border: none;
-        outline: none;
-        padding: 0 10px;
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 0 10px;
     }
     .cancel-logo {
-        display: flex;
-        gap: 30px;
-        height: 25px;
-        ion-icon {
-            width: 20px;
-            height: 20px;
-            z-index: 1;
-        }
+      display: flex;
+      gap: 30px;
+      height: 25px;
+      ion-icon {
+        width: 20px;
+        height: 20px;
+        z-index: 1;
+      }
     }
   }
+  .search-results {
+    display: flex;
+    width: 100%;
+    max-width: 80%;
+    align-self: center;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px 0;
+    .name-product {
+      display: flex;
+      gap: 10px;
+      .img-logo {
+        width: 400px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .description {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        p {
+          text-wrap: wrap;
+        }
+      }
+    }
+    .dev-qty {
+      display: flex;
+      gap: 5px;
+      width: 25%;
+      align-items: center;
+      justify-content: space-between;
+      .btn-increased-decreased {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #000000;
+        text-decoration: none;
+        padding: 0 10px;
+        button {
+          border: none;
+          background-color: transparent;
+          font-size: 16px;
+          font-weight: 600;
+          padding: 0 10px;
+        }
+      }
+    }
+    .priz-sum {
+      display: flex;
+      gap: 5px;
+      padding: 10px 0;
+      width: 20%;
+      justify-content: space-between;
+      p {
+        font-size: 14px;
+        font-weight: 500;
+        color: #000000;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+.search-results {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  ul {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    list-style: none;
+    li {
+      width: 100%;
+    }
+  }
+}
+.result-item {
+  display: flex;
+  width: 80%;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-end;
+  .result-details {
+    width: 50%;
+  }
+}
+.result-image {
+  width: 400px;
+  height: 100%;
+  object-fit: cover;
+}
+.result-details h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+}
+.result-details h4:hover {
+  cursor: pointer;
 }

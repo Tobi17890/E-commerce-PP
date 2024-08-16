@@ -201,7 +201,7 @@
         }
         .circle-color:hover {
           cursor: pointer;
-          box-shadow: 0 0 0 5px #000;
+          box-shadow: 0 0 0 1px #000;
         }
       }
     }
@@ -222,6 +222,10 @@
           margin: 0;
         }
       }
+    }
+    .size:hover {
+      cursor: pointer;
+      opacity: 0.7;
     }
     .adding-container {
       display: flex;
@@ -282,4 +286,30 @@
 .add-to-fav:hover, button:hover {
   cursor: pointer;
   opacity: 0.7;
+}
+
+.circle-color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.circle-color.active {
+  border: 2px solid #000;
+  transform: scale(1.1);
+}
+
+.box-size {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.box-size.active {
+  border: 2px solid #fff;
+  background-color: #000;
+  color: #fff;
 }

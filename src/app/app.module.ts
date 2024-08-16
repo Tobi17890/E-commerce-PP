@@ -36,6 +36,7 @@ import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.componen
 // import { UserStore } from './store/log-in/store';
 import player from 'lottie-web';
 import { LottieModule } from 'ngx-lottie';
+import { PaymentsComponent } from './mens/payments/payments.component';
 
 // export function playerFactory() {
 //   return player;
@@ -63,6 +64,7 @@ import { LottieModule } from 'ngx-lottie';
     SearchDialogComponent,
     AdminLoginComponent,
     AdminLayoutComponent,
+    PaymentsComponent,
   ],
   imports: [
     BrowserModule,
